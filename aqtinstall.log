@@ -1,0 +1,36 @@
+2026-06-13 17:34:20,564 - aqt.main - INFO - installer 19828 aqtinstall(aqt) v3.3.0 on Python 3.11.6 [CPython MSC v.1935 64 bit (AMD64)]
+2026-06-13 17:34:44,935 - aqt.metadata - DEBUG - metadata 21948 Connection to 'https://download.qt.io' failed. Retrying with fallback 'https://ftp.jaist.ac.jp/pub/qtproject/'.
+2026-06-13 17:34:50,702 - aqt.helper - DEBUG - helper 21948 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6120/qt6_6120/Updates.xml.sha256
+2026-06-13 17:35:14,876 - aqt.helper - DEBUG - helper 21948 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6120/qt6_6120/Updates.xml.sha256
+2026-06-13 17:35:42,285 - aqt.helper - DEBUG - helper 21948 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6120/qt6_6120/Updates.xml.sha256
+2026-06-13 17:36:03,556 - aqt.main - INFO - installer 17912 aqtinstall(aqt) v3.3.0 on Python 3.11.6 [CPython MSC v.1935 64 bit (AMD64)]
+2026-06-13 17:36:03,557 - aqt.helper - DEBUG - helper 17912 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:36:27,619 - aqt.helper - DEBUG - helper 17912 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:36:51,681 - aqt.helper - DEBUG - helper 17912 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:37:15,773 - aqt.helper - DEBUG - helper 17912 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:37:39,831 - aqt.helper - DEBUG - helper 17912 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:38:04,740 - aqt.main - INFO - installer 15224 aqtinstall(aqt) v3.3.0 on Python 3.11.6 [CPython MSC v.1935 64 bit (AMD64)]
+2026-06-13 17:38:04,740 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:38:28,813 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:38:52,873 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:39:16,920 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:39:37,696 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:40:01,759 - aqt.archives - WARNING - archives 15224 Failed to download checksum for the file 'online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml'. This may happen on unofficial mirrors.
+2026-06-13 17:40:05,307 - aqt.helper - WARNING - helper 15224 Connection to 'https://qt.akamaized.net/' failed. Retrying with fallback 'https://www.nic.funet.fi/pub/mirrors/download.qt-project.org/'.
+2026-06-13 17:40:05,308 - aqt.helper - DEBUG - helper 15224 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:47:07,458 - aqt.main - INFO - installer 16684 aqtinstall(aqt) v3.3.0 on Python 3.11.6 [CPython MSC v.1935 64 bit (AMD64)]
+2026-06-13 17:47:07,458 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:47:31,545 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:47:55,595 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:48:19,668 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:48:43,719 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml.sha256
+2026-06-13 17:49:07,794 - aqt.archives - WARNING - archives 16684 Failed to download checksum for the file 'online/qtsdkrepository/windows_x86/desktop/qt6_6100/qt6_6100/Updates.xml'. This may happen on unofficial mirrors.
+2026-06-13 17:49:09,543 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:49:33,584 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:49:57,665 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:50:21,715 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:50:45,791 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:51:09,872 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:51:33,917 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:51:57,971 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/6100/msvc2022_64/Updates.xml.sha256
+2026-06-13 17:52:22,013 - aqt.helper - DEBUG - helper 16684 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/6100/msvc2022_64/Updates.xml.sha256

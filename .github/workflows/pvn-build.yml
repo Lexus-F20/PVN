@@ -1,0 +1,148 @@
+name: PVN Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  QT_VERSION: 6.10.1
+  QIF_VERSION: 4.7
+  QT_MIRROR: https://mirrors.ocf.berkeley.edu/qt/
+  PROD_AGW_PUBLIC_KEY: ""
+  PROD_S3_ENDPOINT: ""
+  FALLBACK_S3_ENDPOINT: ""
+  DEV_AGW_PUBLIC_KEY: ""
+  DEV_AGW_ENDPOINT: ""
+  DEV_S3_ENDPOINT: ""
+  FREE_V2_ENDPOINT: ""
+  PREM_V1_ENDPOINT: ""
+
+jobs:
+  build-windows:
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Conan
+        run: pip install "conan==2.28.0"
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: ${{ env.QT_VERSION }}
+          host: windows
+          target: desktop
+          arch: win64_msvc2022_64
+          modules: qtremoteobjects qt5compat qtshadertools qtmultimedia qtimageformats qtquick3d
+          tools: tools_ifw
+          dir: ${{ runner.temp }}
+          setup-python: false
+          set-env: true
+          aqtversion: "==3.3.0"
+          extra: --base ${{ env.QT_MIRROR }}
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Build PVN
+        shell: cmd
+        run: |
+          call deploy\build.bat -arch x64
+
+      - name: Upload exe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PVN-windows-x64
+          path: deploy/build/client/Release/PVN.exe
+          if-no-files-found: warn
+
+      - name: Upload full build dir on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PVN-windows-build-logs
+          path: deploy/build/
+          retention-days: 7
+
+  build-android:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        abi: [arm64-v8a, armeabi-v7a]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Conan
+        run: pip install "conan==2.28.0"
+
+      - name: Install Qt for host (Linux)
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: ${{ env.QT_VERSION }}
+          host: linux
+          target: desktop
+          arch: linux_gcc_64
+          modules: qtremoteobjects qt5compat qtshadertools
+          dir: ${{ runner.temp }}/qt-host
+          setup-python: false
+          aqtversion: "==3.3.0"
+          extra: --base ${{ env.QT_MIRROR }}
+
+      - name: Install Qt for Android
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: ${{ env.QT_VERSION }}
+          host: linux
+          target: android
+          arch: android_${{ matrix.abi == 'arm64-v8a' && 'arm64_v8a' || (matrix.abi == 'armeabi-v7a' && 'armv7' || 'x86_64') }}
+          modules: qtremoteobjects qt5compat qtshadertools qtmultimedia qtimageformats qtquick3d
+          dir: ${{ runner.temp }}/qt-android
+          setup-python: false
+          set-env: true
+          aqtversion: "==3.3.0"
+          extra: --base ${{ env.QT_MIRROR }}
+
+      - name: Build PVN APK (${{ matrix.abi }})
+        shell: bash
+        env:
+          ABI: ${{ matrix.abi }}
+        run: |
+          set -e
+          export QT_HOST_PATH="${RUNNER_TEMP}/qt-host/Qt/${QT_VERSION}/gcc_64"
+          bash deploy/build.sh -t android -a "$ABI"
+
+      - name: Upload APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PVN-android-${{ matrix.abi }}
+          path: |
+            deploy/build/client/android-build/build/outputs/apk/release/*.apk
+            deploy/build/client/android-build/build/outputs/apk/debug/*.apk
+          if-no-files-found: warn
