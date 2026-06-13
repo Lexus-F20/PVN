@@ -55,25 +55,41 @@ jobs:
         with:
           arch: x64
 
-      - name: Build PVN
+      - name: Build PVN + Installer
         shell: cmd
         run: |
-          call deploy\build.bat -arch x64
+          call deploy\build.bat -arch x64 --installer all
 
       - name: Upload exe
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: PVN-windows-x64
+          name: PVN-windows-x64-exe
           path: deploy/build/client/Release/PVN.exe
           if-no-files-found: warn
 
-      - name: Upload full build dir on failure
+      - name: Upload installers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PVN-windows-x64-installer
+          path: |
+            deploy/build/*.exe
+            deploy/build/*.msi
+            deploy/build/*Setup*
+            deploy/build/PVN-*
+          if-no-files-found: warn
+
+      - name: Upload full build logs on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: PVN-windows-build-logs
-          path: deploy/build/
+          path: |
+            deploy/build/CMakeCache.txt
+            deploy/build/CMakeFiles/CMakeError.log
+            deploy/build/CMakeFiles/CMakeOutput.log
+          if-no-files-found: warn
           retention-days: 7
 
   build-android:
@@ -135,7 +151,7 @@ jobs:
         run: |
           set -e
           export QT_HOST_PATH="${RUNNER_TEMP}/qt-host/Qt/${QT_VERSION}/gcc_64"
-          bash deploy/build.sh -t android -a "$ABI"
+          bash deploy/build.sh -t android --abi "$ABI"
 
       - name: Upload APK
         if: always()
