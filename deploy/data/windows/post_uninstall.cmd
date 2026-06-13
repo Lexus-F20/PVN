@@ -1,19 +1,25 @@
-set AmneziaPath=%~dp0
-echo %AmneziaPath%
+set PVNPath=%~dp0
+echo %PVNPath%
 
 rem Define directories for logs
-set "ORG_DIR=%AppData%\AmneziaVPN.ORG"
-set "USER_APP_DIR=%ORG_DIR%\AmneziaVPN"
+set "ORG_DIR=%AppData%\PVN"
+set "USER_APP_DIR=%ORG_DIR%\PVN"
 set "USER_LOG_DIR=%USER_APP_DIR%\log"
-set "SYS_APP_DIR=%ProgramData%\AmneziaVPN"
+set "SYS_APP_DIR=%ProgramData%\PVN"
 set "SYS_LOG_DIR=%SYS_APP_DIR%\log"
-set "SYS_LOG_FILE=%SYS_LOG_DIR%\AmneziaVPN-service.log"
+set "SYS_LOG_FILE=%SYS_LOG_DIR%\PVN-service.log"
 
 timeout /t 1
+sc stop PVN-service
+sc delete PVN-service
 sc stop AmneziaVPN-service
 sc delete AmneziaVPN-service
+sc stop PVNWGTunnel$PVN
+sc delete PVNWGTunnel$PVN
 sc stop AmneziaWGTunnel$AmneziaVPN
 sc delete AmneziaWGTunnel$AmneziaVPN
+taskkill /IM "PVN-service.exe" /F
+taskkill /IM "PVN.exe" /F
 taskkill /IM "AmneziaVPN-service.exe" /F
 taskkill /IM "AmneziaVPN.exe" /F
 
