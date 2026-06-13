@@ -57,8 +57,10 @@ jobs:
 
       - name: Build PVN + Installer
         shell: cmd
+        env:
+          QT_INSTALL_DIR: ${{ runner.temp }}/Qt
         run: |
-          call deploy\build.bat -arch x64 --installer all
+          call deploy\build.bat -arch x64 --installer ifw
 
       - name: Upload exe
         if: always()
@@ -148,6 +150,7 @@ jobs:
         shell: bash
         env:
           ABI: ${{ matrix.abi }}
+          QT_INSTALL_DIR: ${{ runner.temp }}/qt-android
         run: |
           set -e
           export QT_HOST_PATH="${RUNNER_TEMP}/qt-host/Qt/${QT_VERSION}/gcc_64"
