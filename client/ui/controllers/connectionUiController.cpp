@@ -223,13 +223,22 @@ void ConnectionUiController::measurePing()
     connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
             this, [this, proc](int /*code*/, QProcess::ExitStatus /*status*/) {
         const QString out = QString::fromLocal8Bit(proc->readAllStandardOutput());
-        // Match "time=12ms", "time<1ms", "time=12.5 ms"
-        static const QRegularExpression rx(R"(time[=<]\s*([\d.]+)\s*ms)",
+        // Match localized ping output: English "time=12ms", "time<1ms",
+        // Russian "время=12мс", etc. We accept "time" / "время" / "tiempo" / etc.
+        // and any single-byte separator before the digits.
+        static const QRegularExpression rx(R"((?:time|время|tiempo|tempo|temps|tempo|szeit|tempo|时间)[=<:]\s*([\d.]+))",
                                            QRegularExpression::CaseInsensitiveOption);
+        int newPing = -1;
         const auto m = rx.match(out);
-        const int newPing = m.hasMatch()
-                            ? qRound(m.captured(1).toDouble())
-                            : -1;
+        if (m.hasMatch()) {
+            newPing = qRound(m.captured(1).toDouble());
+        } else {
+            // Last-ditch heuristic: any "= 12 ms" / "=12мс" / "<1 ms" pattern
+            static const QRegularExpression rxFallback(R"([=<]\s*([\d.]+)\s*(?:ms|мс))",
+                                                       QRegularExpression::CaseInsensitiveOption);
+            const auto mf = rxFallback.match(out);
+            if (mf.hasMatch()) newPing = qRound(mf.captured(1).toDouble());
+        }
         if (newPing != m_pingMs) {
             m_pingMs = newPing;
             emit statsChanged();
