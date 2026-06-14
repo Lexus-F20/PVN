@@ -127,6 +127,68 @@ PageType {
                 Layout.alignment: Qt.AlignCenter
             }
 
+            // PVN: live stats widget (download/upload speed + ping)
+            RowLayout {
+                id: statsRow
+                objectName: "pvnStatsRow"
+
+                visible: ConnectionController.isConnected
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: 4
+                Layout.bottomMargin: 4
+                spacing: 18
+
+                Row {
+                    spacing: 4
+                    Text {
+                        text: "↓"
+                        color: AmneziaStyle.color.paleGray
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        text: ConnectionController.downloadSpeed
+                        color: AmneziaStyle.color.paleGray
+                        font.family: "Inter"
+                        font.pixelSize: 14
+                        font.weight: Font.Medium
+                    }
+                }
+
+                Row {
+                    spacing: 4
+                    Text {
+                        text: "↑"
+                        color: AmneziaStyle.color.paleGray
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        text: ConnectionController.uploadSpeed
+                        color: AmneziaStyle.color.paleGray
+                        font.family: "Inter"
+                        font.pixelSize: 14
+                        font.weight: Font.Medium
+                    }
+                }
+
+                Row {
+                    spacing: 4
+                    Text {
+                        text: "↺"
+                        color: AmneziaStyle.color.paleGray
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        text: ConnectionController.pingMs >= 0
+                              ? ConnectionController.pingMs + " ms"
+                              : "— ms"
+                        color: AmneziaStyle.color.paleGray
+                        font.family: "Inter"
+                        font.pixelSize: 14
+                        font.weight: Font.Medium
+                    }
+                }
+            }
+
             BasicButtonType {
                 id: splitTunnelingButton
                 objectName: "splitTunnelingButton"

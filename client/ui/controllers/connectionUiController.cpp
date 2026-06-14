@@ -6,10 +6,13 @@
     #include <QApplication>
 #endif
 
+#include <QRegularExpression>
+
 #include "amneziaApplication.h"
 #include "core/controllers/serversController.h"
 #include "core/models/containerConfig.h"
 #include "core/utils/containerEnum.h"
+#include "vpnConnection.h"
 
 ConnectionUiController::ConnectionUiController(ConnectionController* connectionController,
                                                 ServersController* serversController,
@@ -19,8 +22,12 @@ ConnectionUiController::ConnectionUiController(ConnectionController* connectionC
       m_serversController(serversController)
 {
     connect(m_connectionController, &ConnectionController::connectionStateChanged, this, &ConnectionUiController::onConnectionStateChanged);
+    connect(m_connectionController, &ConnectionController::bytesChanged, this, &ConnectionUiController::onBytesChanged);
 
     connect(this, &ConnectionUiController::connectButtonClicked, this, &ConnectionUiController::toggleConnection, Qt::QueuedConnection);
+
+    m_pingTimer.setInterval(3000);
+    connect(&m_pingTimer, &QTimer::timeout, this, &ConnectionUiController::measurePing);
 
     m_state = Vpn::ConnectionState::Disconnected;
 }
@@ -63,6 +70,8 @@ void ConnectionUiController::onConnectionStateChanged(Vpn::ConnectionState state
         m_isConnectionInProgress = false;
         m_isConnected = true;
         m_connectionStateText = tr("Connected");
+        m_pingTimer.start();
+        QTimer::singleShot(500, this, &ConnectionUiController::measurePing);
         break;
     }
     case Vpn::ConnectionState::Connecting: {
@@ -77,6 +86,11 @@ void ConnectionUiController::onConnectionStateChanged(Vpn::ConnectionState state
     case Vpn::ConnectionState::Disconnected: {
         m_isConnectionInProgress = false;
         m_connectionStateText = tr("Connect");
+        m_pingTimer.stop();
+        m_downloadSpeed = QStringLiteral("0.00 Mbps");
+        m_uploadSpeed   = QStringLiteral("0.00 Mbps");
+        m_pingMs = -1;
+        emit statsChanged();
         break;
     }
     case Vpn::ConnectionState::Disconnecting: {
@@ -170,6 +184,64 @@ bool ConnectionUiController::isConnectionInProgress() const
 bool ConnectionUiController::isConnected() const
 {
     return m_isConnected;
+}
+
+QString ConnectionUiController::downloadSpeed() const
+{
+    return m_downloadSpeed;
+}
+
+QString ConnectionUiController::uploadSpeed() const
+{
+    return m_uploadSpeed;
+}
+
+int ConnectionUiController::pingMs() const
+{
+    return m_pingMs;
+}
+
+void ConnectionUiController::onBytesChanged(quint64 receivedBytes, quint64 sentBytes)
+{
+    m_downloadSpeed = VpnConnection::bytesPerSecToText(receivedBytes);
+    m_uploadSpeed   = VpnConnection::bytesPerSecToText(sentBytes);
+    emit statsChanged();
+}
+
+void ConnectionUiController::measurePing()
+{
+    if (!m_isConnected) return;
+
+    auto *proc = new QProcess(this);
+    QStringList args;
+#ifdef Q_OS_WIN
+    args << "-n" << "1" << "-w" << "1500" << m_gatewayIp;
+#else
+    args << "-c" << "1" << "-W" << "2"    << m_gatewayIp;
+#endif
+
+    connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+            this, [this, proc](int /*code*/, QProcess::ExitStatus /*status*/) {
+        const QString out = QString::fromLocal8Bit(proc->readAllStandardOutput());
+        // Match "time=12ms", "time<1ms", "time=12.5 ms"
+        static const QRegularExpression rx(R"(time[=<]\s*([\d.]+)\s*ms)",
+                                           QRegularExpression::CaseInsensitiveOption);
+        const auto m = rx.match(out);
+        const int newPing = m.hasMatch()
+                            ? qRound(m.captured(1).toDouble())
+                            : -1;
+        if (newPing != m_pingMs) {
+            m_pingMs = newPing;
+            emit statsChanged();
+        }
+        proc->deleteLater();
+    });
+
+#ifdef Q_OS_WIN
+    proc->start(QStringLiteral("ping.exe"), args);
+#else
+    proc->start(QStringLiteral("ping"), args);
+#endif
 }
 
 bool ConnectionUiController::isRevokeBlockedDuringActiveConnection(const QString &serverId, int containerIndex,

@@ -2,6 +2,8 @@
 #define CONNECTIONUICONTROLLER_H
 
 #include <QObject>
+#include <QProcess>
+#include <QTimer>
 
 #include "core/controllers/connectionController.h"
 #include "core/utils/errorCodes.h"
@@ -18,6 +20,9 @@ public:
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY connectionStateChanged)
     Q_PROPERTY(bool isConnectionInProgress READ isConnectionInProgress NOTIFY connectionStateChanged)
     Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
+    Q_PROPERTY(QString downloadSpeed READ downloadSpeed NOTIFY statsChanged)
+    Q_PROPERTY(QString uploadSpeed READ uploadSpeed NOTIFY statsChanged)
+    Q_PROPERTY(int pingMs READ pingMs NOTIFY statsChanged)
 
     explicit ConnectionUiController(ConnectionController* connectionController,
                                     ServersController* serversController,
@@ -28,6 +33,9 @@ public:
     bool isConnected() const;
     bool isConnectionInProgress() const;
     QString connectionStateText() const;
+    QString downloadSpeed() const;
+    QString uploadSpeed() const;
+    int pingMs() const;
 
 public slots:
     void toggleConnection();
@@ -39,11 +47,14 @@ public slots:
 
     ErrorCode getLastConnectionError();
     void onConnectionStateChanged(Vpn::ConnectionState state);
+    void onBytesChanged(quint64 receivedBytes, quint64 sentBytes);
+    void measurePing();
 
     void onTranslationsUpdated();
 
 signals:
     void connectionStateChanged();
+    void statsChanged();
 
     void connectionErrorOccurred(ErrorCode errorCode);
 
@@ -63,6 +74,12 @@ private:
     bool m_isConnected = false;
     bool m_isConnectionInProgress = false;
     QString m_connectionStateText = tr("Connect");
+
+    QString m_downloadSpeed = QStringLiteral("0.00 Mbps");
+    QString m_uploadSpeed   = QStringLiteral("0.00 Mbps");
+    int m_pingMs = -1;
+    QTimer m_pingTimer;
+    QString m_gatewayIp = QStringLiteral("10.8.0.1");
 
     Vpn::ConnectionState m_state;
 };
