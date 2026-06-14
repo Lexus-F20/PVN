@@ -237,8 +237,8 @@ function Controller () {
 
     if (installer.isInstaller()) {
         installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
-        installer.setDefaultPageVisible(QInstaller.TargetDirectory, false);
-        installer.setDefaultPageVisible(QInstaller.StartMenuDirectoryPage, false);
+        installer.setDefaultPageVisible(QInstaller.TargetDirectory, true);
+        installer.setDefaultPageVisible(QInstaller.StartMenuDirectoryPage, true);
         installer.setDefaultPageVisible(QInstaller.LicenseCheck, false);
 
         isDesktopAppProcessRunningMessageLoop();

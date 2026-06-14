@@ -63,11 +63,17 @@ Component.prototype.createOperations = function()
 
     if (runningOnWindows()) {
 
+        // Desktop shortcut for current user
         component.addOperation("CreateShortcut", "@TargetDir@/" + appExecutableFileName(),
                                QDesktopServices.storageLocation(QDesktopServices.DesktopLocation) + "/" + appName() + ".lnk",
                                "workingDirectory=@TargetDir@", "iconPath=@TargetDir@\\" + appExecutableFileName(), "iconId=0");
 
+        // All-users desktop shortcut (works under elevated installer running as Administrator)
+        component.addElevatedOperation("CreateShortcut", "@TargetDir@/" + appExecutableFileName(),
+                                       installer.environmentVariable("PUBLIC") + "/Desktop/" + appName() + ".lnk",
+                                       "workingDirectory=@TargetDir@", "iconPath=@TargetDir@\\" + appExecutableFileName(), "iconId=0");
 
+        // Start Menu shortcut
         component.addElevatedOperation("CreateShortcut", "@TargetDir@/" + appExecutableFileName(),
                                        installer.value("AllUsersStartMenuProgramsPath") + "/" + appName() + ".lnk",
                                        "workingDirectory=@TargetDir@", "iconPath=@TargetDir@\\" + appExecutableFileName(), "iconId=0");
