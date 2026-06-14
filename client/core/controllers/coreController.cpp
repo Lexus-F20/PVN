@@ -168,6 +168,9 @@ void CoreController::initControllers()
     m_connectionUiController = new ConnectionUiController(m_connectionController, m_serversController, this);
     setQmlContextProperty("ConnectionController", m_connectionUiController);
 
+    m_googleAuthController = new GoogleAuthController(m_importCoreController, m_connectionController, this);
+    setQmlContextProperty("GoogleAuthController", m_googleAuthController);
+
     if (m_engine) {
         m_focusController = new FocusController(m_engine, this);
         setQmlContextProperty("FocusController", m_focusController);

@@ -32,6 +32,26 @@ PageType {
         }
 
         BasicButtonType {
+            id: googleSignInButton
+            Layout.fillWidth: true
+            Layout.bottomMargin: 8
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
+            Layout.alignment: Qt.AlignBottom
+
+            text: GoogleAuthController.state === 1 || GoogleAuthController.state === 2 || GoogleAuthController.state === 3 || GoogleAuthController.state === 4
+                  ? qsTr("Signing in…")
+                  : qsTr("Sign in with Google")
+
+            enabled: !(GoogleAuthController.state === 1 || GoogleAuthController.state === 2
+                       || GoogleAuthController.state === 3 || GoogleAuthController.state === 4)
+
+            clickedFunc: function() {
+                GoogleAuthController.signInWithGoogle()
+            }
+        }
+
+        BasicButtonType {
             id: startButton
             Layout.fillWidth: true
             Layout.bottomMargin: 48 + PageController.safeAreaBottomMargin
@@ -39,11 +59,21 @@ PageType {
             Layout.rightMargin: 16
             Layout.alignment: Qt.AlignBottom
 
-            text: qsTr("Let's get started")
+            text: qsTr("I have a config file")
 
             clickedFunc: function() {
                 PageController.goToPage(PageEnum.PageSetupWizardConfigSource)
             }
+        }
+    }
+
+    Connections {
+        target: GoogleAuthController
+        function onSignInCompleted() {
+            PageController.goToPageHome()
+        }
+        function onSignInFailed(msg) {
+            PageController.showErrorMessage(msg)
         }
     }
 

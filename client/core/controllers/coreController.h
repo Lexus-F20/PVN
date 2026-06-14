@@ -14,6 +14,7 @@
 #include "ui/controllers/appSplitTunnelingUiController.h"
 #include "ui/controllers/allowedDnsUiController.h"
 #include "ui/controllers/connectionUiController.h"
+#include "ui/controllers/googleAuthController.h"
 #include "ui/controllers/selfhosted/exportUiController.h"
 #include "core/controllers/selfhosted/exportController.h"
 #include "ui/controllers/qml/focusController.h"
@@ -159,6 +160,7 @@ private:
     QMetaObject::Connection m_reloadConfigErrorOccurredConnection;
 
     ConnectionUiController* m_connectionUiController;
+    GoogleAuthController* m_googleAuthController = nullptr;
     FocusController* m_focusController;
     PageController* m_pageController;
     InstallUiController* m_installUiController;
