@@ -152,7 +152,7 @@ Controller.prototype.RestartPageCallback = function ()
 
 Controller.prototype.StartMenuDirectoryPageCallback = function()
 {
-    gui.clickButton(buttons.NextButton);
+    // Let user pick Start Menu folder; no auto-advance.
 }
 
 Controller.prototype.ComponentSelectionPageCallback = function()
@@ -174,8 +174,7 @@ Controller.prototype.TargetDirectoryPageCallback = function ()
     if (widget !== null) {
         widget.BrowseDirectoryButton.clicked.disconnect(onBrowseButtonClicked);
         widget.BrowseDirectoryButton.clicked.connect(onBrowseButtonClicked);
-
-        gui.clickButton(buttons.NextButton);
+        // Let user pick install directory; no auto-advance.
     }
 }
 
