@@ -257,7 +257,7 @@ void GoogleAuthController::importReturnedConfig(const QString &configText)
 {
     setState(State::Importing);
     auto result = m_importController->extractConfigFromData(configText, QStringLiteral("pvn.conf"));
-    if (result.importResult != ImportController::ImportResult::Success) {
+    if (result.errorCode != ErrorCode::NoError || result.config.isEmpty()) {
         fail(tr("Failed to extract config from backend response"));
         return;
     }
