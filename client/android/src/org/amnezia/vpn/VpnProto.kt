@@ -1,5 +1,6 @@
 package org.amnezia.vpn
 
+import org.amnezia.vpn.BuildConfig
 import org.amnezia.vpn.protocol.Protocol
 import org.amnezia.vpn.protocol.awg.Awg
 import org.amnezia.vpn.protocol.openvpn.OpenVpn
@@ -13,7 +14,7 @@ enum class VpnProto(
 ) {
     WIREGUARD(
         "WireGuard",
-        "org.amnezia.vpn:amneziaAwgService",
+        "${BuildConfig.APPLICATION_ID}:amneziaAwgService",
         AwgService::class.java
     ) {
         override fun createProtocol(): Protocol = Wireguard()
@@ -21,7 +22,7 @@ enum class VpnProto(
 
     AWG(
         "AmneziaWG",
-        "org.amnezia.vpn:amneziaAwgService",
+        "${BuildConfig.APPLICATION_ID}:amneziaAwgService",
         AwgService::class.java
     ) {
         override fun createProtocol(): Protocol = Awg()
@@ -29,7 +30,7 @@ enum class VpnProto(
 
     OPENVPN(
         "OpenVPN",
-        "org.amnezia.vpn:amneziaOpenVpnService",
+        "${BuildConfig.APPLICATION_ID}:amneziaOpenVpnService",
         OpenVpnService::class.java
     ) {
         override fun createProtocol(): Protocol = OpenVpn()
@@ -37,7 +38,7 @@ enum class VpnProto(
 
     XRAY(
         "XRay",
-        "org.amnezia.vpn:amneziaXrayService",
+        "${BuildConfig.APPLICATION_ID}:amneziaXrayService",
         XrayService::class.java
     ) {
         override fun createProtocol(): Protocol = Xray.instance
@@ -45,7 +46,7 @@ enum class VpnProto(
 
     SSXRAY(
         "SSXRay",
-        "org.amnezia.vpn:amneziaXrayService",
+        "${BuildConfig.APPLICATION_ID}:amneziaXrayService",
         XrayService::class.java
     ) {
         override fun createProtocol(): Protocol = Xray.instance
