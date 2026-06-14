@@ -28,15 +28,20 @@ constexpr auto kBackendBase = "https://pvn-backend.alexromanov765.workers.dev";
 constexpr auto kDesktopClientId =
     "360393448931-g3b1mh8m7pqts3l525kfuib90n6k2bua.apps.googleusercontent.com";
 
-// Android Google OAuth client ID and its reversed-domain redirect.
-constexpr auto kAndroidClientId =
-    "360393448931-4ls6sc6654hfsiprbtpu33lpart4924h.apps.googleusercontent.com";
-constexpr auto kAndroidRedirectUri =
-    "com.googleusercontent.apps.360393448931-4ls6sc6654hfsiprbtpu33lpart4924h:/oauth2redirect";
+// Android reuses the iOS OAuth client ID — the Android client type in Google
+// Console is reserved for the native Google Sign-In SDK and rejects browser
+// flows. The iOS client ID supports browser-based PKCE with a reversed-domain
+// redirect URI, which works on Android via a custom-scheme intent filter.
+constexpr auto kIosClientId =
+    "360393448931-4c6t5jtu97qoqk2g77cdoj3ofop4h4lf.apps.googleusercontent.com";
+constexpr auto kIosRedirectUri =
+    "com.googleusercontent.apps.360393448931-4c6t5jtu97qoqk2g77cdoj3ofop4h4lf:/oauth2redirect";
 
 QString activeClientId() {
 #ifdef Q_OS_ANDROID
-    return QString::fromLatin1(kAndroidClientId);
+    return QString::fromLatin1(kIosClientId);
+#elif defined(Q_OS_IOS)
+    return QString::fromLatin1(kIosClientId);
 #else
     return QString::fromLatin1(kDesktopClientId);
 #endif
@@ -129,7 +134,7 @@ void GoogleAuthController::signInWithGoogle()
 #ifdef Q_OS_ANDROID
     // Android — no local server, browser will redirect to our custom URL scheme
     // and the Activity will forward the code via QtAndroidController.
-    m_redirectUri = QString::fromLatin1(kAndroidRedirectUri);
+    m_redirectUri = QString::fromLatin1(kIosRedirectUri);
 #else
     if (!startLocalCallbackServer()) {
         fail(tr("Failed to start local callback server"));

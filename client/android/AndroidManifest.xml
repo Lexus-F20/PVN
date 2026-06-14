@@ -60,12 +60,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
-            <!-- Google OAuth redirect for PVN Android client (reversed client ID) -->
+            <!-- Google OAuth redirect (reversed iOS client ID — Android client type
+                 does not support browser-based PKCE flow, only the native Google
+                 Sign-In SDK, so the iOS client ID is reused for in-app browser sign-in). -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="com.googleusercontent.apps.360393448931-4ls6sc6654hfsiprbtpu33lpart4924h" />
+                <data android:scheme="com.googleusercontent.apps.360393448931-4c6t5jtu97qoqk2g77cdoj3ofop4h4lf" />
             </intent-filter>
 
             <intent-filter>
