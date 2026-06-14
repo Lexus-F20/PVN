@@ -156,12 +156,37 @@ jobs:
           export QT_HOST_PATH="${RUNNER_TEMP}/qt-host/Qt/${QT_VERSION}/gcc_64"
           bash deploy/build.sh -t android --abi "$ABI"
 
-      - name: Upload APK
+      - name: Decode signing keystore
+        shell: bash
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > ${{ runner.temp }}/pvn.keystore
+
+      - name: Sign APK
+        shell: bash
+        env:
+          ABI: ${{ matrix.abi }}
+        run: |
+          set -e
+          APK_DIR=deploy/build/client/android-build/build/outputs/apk/release
+          UNSIGNED="$APK_DIR/android-build-release-unsigned.apk"
+          SIGNED="$APK_DIR/PVN-${ABI}-release.apk"
+          BUILD_TOOLS=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
+          "$BUILD_TOOLS/zipalign" -p -v 4 "$UNSIGNED" "$SIGNED.aligned"
+          "$BUILD_TOOLS/apksigner" sign \
+            --ks ${{ runner.temp }}/pvn.keystore \
+            --ks-pass pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --key-pass pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --ks-key-alias ${{ secrets.ANDROID_KEY_ALIAS }} \
+            --out "$SIGNED" \
+            "$SIGNED.aligned"
+          rm -f "$SIGNED.aligned"
+          "$BUILD_TOOLS/apksigner" verify "$SIGNED"
+          ls -la "$APK_DIR/"
+
+      - name: Upload signed APK
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: PVN-android-${{ matrix.abi }}
-          path: |
-            deploy/build/client/android-build/build/outputs/apk/release/*.apk
-            deploy/build/client/android-build/build/outputs/apk/debug/*.apk
+          path: deploy/build/client/android-build/build/outputs/apk/release/PVN-*-release.apk
           if-no-files-found: warn
