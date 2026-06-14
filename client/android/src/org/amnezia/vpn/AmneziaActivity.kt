@@ -257,6 +257,19 @@ class AmneziaActivity : QtActivity() {
                     }
                 }
             }
+            // PVN Google OAuth redirect — scheme registered in AndroidManifest
+            val data = intent.data
+            if (intent.action == Intent.ACTION_VIEW && data != null &&
+                data.scheme?.startsWith("com.googleusercontent.apps.") == true) {
+                val code = data.getQueryParameter("code")
+                if (!code.isNullOrEmpty()) {
+                    Log.v(TAG, "Google OAuth code received via intent")
+                    mainScope.launch {
+                        qtInitialized.await()
+                        QtAndroidController.onGoogleSignInCode(code)
+                    }
+                }
+            }
         }
     }
 

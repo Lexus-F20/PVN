@@ -99,6 +99,7 @@ bool AndroidController::initialize()
         {"onFileOpened", "(Ljava/lang/String;)V", reinterpret_cast<void *>(onFileOpened)},
         {"onConfigImported", "(Ljava/lang/String;)V", reinterpret_cast<void *>(onConfigImported)},
         {"onAuthResult", "(Z)V", reinterpret_cast<void *>(onAuthResult)},
+        {"onGoogleSignInCode", "(Ljava/lang/String;)V", reinterpret_cast<void *>(onGoogleSignInCode)},
         {"decodeQrCode", "(Ljava/lang/String;)Z", reinterpret_cast<bool *>(decodeQrCode)},
         {"onImeInsetsChanged", "(I)V", reinterpret_cast<void *>(onImeInsetsChanged)},
         {"onSystemBarsInsetsChanged", "(II)V", reinterpret_cast<void *>(onSystemBarsInsetsChanged)},
@@ -531,6 +532,14 @@ void AndroidController::onAuthResult(JNIEnv *env, jobject thiz, jboolean result)
     Q_UNUSED(thiz);
 
     emit AndroidController::instance()->authenticationResult(result);
+}
+
+// static
+void AndroidController::onGoogleSignInCode(JNIEnv *env, jobject thiz, jstring code)
+{
+    Q_UNUSED(thiz);
+
+    emit AndroidController::instance()->googleSignInCode(AndroidUtils::convertJString(env, code));
 }
 
 // static

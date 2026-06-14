@@ -15,6 +15,10 @@
 #include <QUrlQuery>
 #include <QUuid>
 
+#ifdef Q_OS_ANDROID
+    #include "platforms/android/android_controller.h"
+#endif
+
 namespace {
 // Worker base URL — change here if backend moves
 constexpr auto kBackendBase = "https://pvn-backend.alexromanov765.workers.dev";
@@ -23,6 +27,20 @@ constexpr auto kBackendBase = "https://pvn-backend.alexromanov765.workers.dev";
 // Desktop client (used on Windows/macOS/Linux).
 constexpr auto kDesktopClientId =
     "360393448931-g3b1mh8m7pqts3l525kfuib90n6k2bua.apps.googleusercontent.com";
+
+// Android Google OAuth client ID and its reversed-domain redirect.
+constexpr auto kAndroidClientId =
+    "360393448931-4ls6sc6654hfsiprbtpu33lpart4924h.apps.googleusercontent.com";
+constexpr auto kAndroidRedirectUri =
+    "com.googleusercontent.apps.360393448931-4ls6sc6654hfsiprbtpu33lpart4924h:/oauth2redirect";
+
+QString activeClientId() {
+#ifdef Q_OS_ANDROID
+    return QString::fromLatin1(kAndroidClientId);
+#else
+    return QString::fromLatin1(kDesktopClientId);
+#endif
+}
 }
 
 GoogleAuthController::GoogleAuthController(ImportController *importController,
@@ -34,6 +52,16 @@ GoogleAuthController::GoogleAuthController(ImportController *importController,
 {
     connect(&m_callbackServer, &QTcpServer::newConnection,
             this, &GoogleAuthController::onCallbackConnection);
+
+#ifdef Q_OS_ANDROID
+    // Catch the OAuth code that the Android Activity receives via custom-scheme
+    // intent and forwards through QtAndroidController.onGoogleSignInCode JNI.
+    connect(AndroidController::instance(), &AndroidController::googleSignInCode,
+            this, [this](const QString &code) {
+        if (m_state != State::Opening) return;
+        handleCallback(code, m_oauthState);
+    });
+#endif
 
     loadPersistedSession();
 }
@@ -97,10 +125,17 @@ bool GoogleAuthController::startLocalCallbackServer()
 void GoogleAuthController::signInWithGoogle()
 {
     m_errorMessage.clear();
+
+#ifdef Q_OS_ANDROID
+    // Android — no local server, browser will redirect to our custom URL scheme
+    // and the Activity will forward the code via QtAndroidController.
+    m_redirectUri = QString::fromLatin1(kAndroidRedirectUri);
+#else
     if (!startLocalCallbackServer()) {
         fail(tr("Failed to start local callback server"));
         return;
     }
+#endif
 
     m_pkceVerifier = randomBase64Url(32);
     const QString challenge = sha256Base64Url(m_pkceVerifier);
@@ -109,7 +144,7 @@ void GoogleAuthController::signInWithGoogle()
     QUrl authUrl(QStringLiteral("https://accounts.google.com/o/oauth2/v2/auth"));
     QUrlQuery q;
     q.addQueryItem("response_type", "code");
-    q.addQueryItem("client_id", kDesktopClientId);
+    q.addQueryItem("client_id", activeClientId());
     q.addQueryItem("redirect_uri", m_redirectUri);
     q.addQueryItem("scope", "openid email profile");
     q.addQueryItem("state", m_oauthState);
@@ -186,7 +221,7 @@ void GoogleAuthController::exchangeCodeForIdToken(const QString &code)
                   "application/x-www-form-urlencoded");
     QUrlQuery body;
     body.addQueryItem("grant_type",    "authorization_code");
-    body.addQueryItem("client_id",     kDesktopClientId);
+    body.addQueryItem("client_id",     activeClientId());
     body.addQueryItem("redirect_uri",  m_redirectUri);
     body.addQueryItem("code",          code);
     body.addQueryItem("code_verifier", m_pkceVerifier);
