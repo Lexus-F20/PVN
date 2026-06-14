@@ -58,7 +58,7 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
 
-                text: qsTr("Support Amnezia")
+                text: qsTr("Support PVN")
                 horizontalAlignment: Text.AlignHCenter
             }
 
@@ -73,7 +73,7 @@ PageType {
                 height: 20
                 font.pixelSize: 14
 
-                text: qsTr("Amnezia is a free and open-source application. You can support the developers if you like it.")
+                text: qsTr("PVN is a free and open-source application. You can support the developers if you like it.")
                 color: AmneziaStyle.color.paleGray
             }
 

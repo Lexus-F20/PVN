@@ -27,12 +27,12 @@ PageType {
     property bool isSelfHostedConfig: true
 
     property string configExtension: ".vpn"
-    property string configCaption: qsTr("Save AmneziaVPN config")
+    property string configCaption: qsTr("Save PVN config")
     property string configFileName: "amnezia_config"
 
     // onVisibleChanged: {
     //     configExtension = ".vpn"
-    //     configCaption = qsTr("Save AmneziaVPN config")
+    //     configCaption = qsTr("Save PVN config")
     //     configFileName = "amnezia_config"
 
     //     if (visible) {
@@ -320,7 +320,7 @@ PageType {
                 Layout.rightMargin: 16
                 visible: isQrCodeVisible
                 horizontalAlignment: Text.AlignHCenter
-                text: qsTr("To read the QR code in the Amnezia app, select \"Add server\" → \"I have data to connect\" → \"QR code, key or settings file\"")
+                text: qsTr("To read the QR code in the PVN app, select \"Add server\" → \"I have data to connect\" → \"QR code, key or settings file\"")
             }
         }
     }

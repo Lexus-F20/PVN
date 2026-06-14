@@ -47,10 +47,10 @@ QString getBaseDescription(const QMap<DockerContainer, ContainerConfig> &contain
     if (hasWriteAccess) {
         const bool isDnsInstalled = containers.contains(DockerContainer::Dns);
         if (isAmneziaDnsEnabled && isDnsInstalled) {
-            description += QStringLiteral("Amnezia DNS | ");
+            description += QStringLiteral("PVN DNS | ");
         }
     } else if (primaryDnsIsAmnezia) {
-        description += QStringLiteral("Amnezia DNS | ");
+        description += QStringLiteral("PVN DNS | ");
     }
     return description;
 }

@@ -337,7 +337,7 @@ ExportController::ExportResult ExportController::generateXrayConfig(const QStrin
         // VlessServerObject doesn't have alpn field, so we embed in serverName if needed
     }
 
-    result.nativeConfigString = amnezia::serialization::vless::Serialize(vlessServer, "AmneziaVPN");
+    result.nativeConfigString = amnezia::serialization::vless::Serialize(vlessServer, "PVN");
 
     return result;
 }
