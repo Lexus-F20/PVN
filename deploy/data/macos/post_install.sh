@@ -1,9 +1,11 @@
 #!/bin/bash
 
-APP_NAME=AmneziaVPN
+APP_NAME=PVN
+LEGACY_NAME=AmneziaVPN
 SERVICE_GROUP=amnvpn
-PLIST_NAME=$APP_NAME.plist
-LAUNCH_DAEMONS_PLIST_NAME=/Library/LaunchDaemons/$PLIST_NAME
+# PVN.plist is shipped inside the bundle; CPack copies it verbatim
+PLIST_NAME=$LEGACY_NAME.plist
+LAUNCH_DAEMONS_PLIST_NAME=/Library/LaunchDaemons/$APP_NAME.plist
 LOG_FOLDER=/var/log/$APP_NAME
 LOG_FILE="$LOG_FOLDER/post-install.log"
 APP_PATH=/Applications/$APP_NAME.app
@@ -44,7 +46,7 @@ else
   next_gid=$(dscl . -list /Groups PrimaryGroupID 2>/dev/null | awk '{print $2}' | sort -n | awk '$1>=500{g=$1} END{print (g?g+1:501)}')
   run_cmd dscl . -create "/Groups/$SERVICE_GROUP"
   run_cmd dscl . -create "/Groups/$SERVICE_GROUP" PrimaryGroupID "$next_gid"
-  run_cmd dscl . -create "/Groups/$SERVICE_GROUP" RealName "Amnezia VPN Service Group"
+  run_cmd dscl . -create "/Groups/$SERVICE_GROUP" RealName "PVN Service Group"
 fi
 
 run_cmd sudo chmod -R a-w "$APP_PATH/"
@@ -52,7 +54,7 @@ run_cmd sudo chown -R root "$APP_PATH/"
 run_cmd sudo chgrp -R wheel "$APP_PATH/"
 
 log "Requesting ${APP_NAME} to quit gracefully"
-run_cmd osascript -e 'tell application "AmneziaVPN" to quit' || true
+run_cmd osascript -e 'tell application "PVN" to quit' || true
 
 PLIST_SOURCE="$APP_PATH/Contents/Resources/$PLIST_NAME"
 if [ -f "$PLIST_SOURCE" ]; then
@@ -71,3 +73,4 @@ log "Launching ${APP_NAME} application"
 run_cmd open -a "$APP_PATH" || true
 
 log "Script finished"
+

@@ -12,16 +12,16 @@ set "SYS_LOG_FILE=%SYS_LOG_DIR%\PVN-service.log"
 timeout /t 1
 sc stop PVN-service
 sc delete PVN-service
-sc stop AmneziaVPN-service
-sc delete AmneziaVPN-service
+sc stop PVN-service
+sc delete PVN-service
 sc stop PVNWGTunnel$PVN
 sc delete PVNWGTunnel$PVN
-sc stop AmneziaWGTunnel$AmneziaVPN
-sc delete AmneziaWGTunnel$AmneziaVPN
+sc stop AmneziaWGTunnel$PVN
+sc delete AmneziaWGTunnel$PVN
 taskkill /IM "PVN-service.exe" /F
 taskkill /IM "PVN.exe" /F
-taskkill /IM "AmneziaVPN-service.exe" /F
-taskkill /IM "AmneziaVPN.exe" /F
+taskkill /IM "PVN-service.exe" /F
+taskkill /IM "PVN.exe" /F
 
 rem Delete the service log file under ProgramData
 if exist "%SYS_LOG_FILE%" del /F /Q "%SYS_LOG_FILE%"
@@ -36,3 +36,4 @@ rd "%USER_APP_DIR%" 2>nul
 rd "%ORG_DIR%" 2>nul
 
 exit /b 0
+

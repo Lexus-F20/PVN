@@ -1,6 +1,7 @@
 #!/bin/bash
 
-APP_NAME=AmneziaVPN
+APP_NAME=PVN
+LEGACY_NAME=AmneziaVPN
 PLIST_NAME=$APP_NAME.plist
 LAUNCH_DAEMONS_PLIST_NAME="/Library/LaunchDaemons/$PLIST_NAME"
 APP_PATH="/Applications/$APP_NAME.app"
@@ -9,6 +10,21 @@ SYSTEM_APP_SUPPORT="/Library/Application Support/$APP_NAME"
 LOG_FOLDER="/var/log/$APP_NAME"
 CACHES_FOLDER="$HOME/Library/Caches/$APP_NAME"
 SERVICE_GROUP="amnvpn"
+
+# Also clean up legacy AmneziaVPN install if user is upgrading
+LEGACY_PLIST="/Library/LaunchDaemons/$LEGACY_NAME.plist"
+LEGACY_APP_PATH="/Applications/$LEGACY_NAME.app"
+LEGACY_USER_APP_SUPPORT="$HOME/Library/Application Support/$LEGACY_NAME"
+LEGACY_SYSTEM_APP_SUPPORT="/Library/Application Support/$LEGACY_NAME"
+LEGACY_LOG_FOLDER="/var/log/$LEGACY_NAME"
+LEGACY_CACHES_FOLDER="$HOME/Library/Caches/$LEGACY_NAME"
+
+if launchctl list "${LEGACY_NAME}-service" &> /dev/null; then
+    sudo launchctl bootout system "$LEGACY_PLIST" || sudo launchctl unload "$LEGACY_PLIST" || true
+fi
+sudo rm -f "$LEGACY_PLIST"
+sudo rm -rf "$LEGACY_APP_PATH" "$LEGACY_SYSTEM_APP_SUPPORT" "$LEGACY_LOG_FOLDER"
+rm -rf "$LEGACY_USER_APP_SUPPORT" "$LEGACY_CACHES_FOLDER"
 
 # Attempt to quit the GUI application if it's currently running
 if pgrep -x "$APP_NAME" > /dev/null; then
@@ -99,3 +115,4 @@ if dscl . -read "/Groups/$SERVICE_GROUP" >/dev/null 2>&1; then
 fi
 
 # -----------------------------------------------------------
+
