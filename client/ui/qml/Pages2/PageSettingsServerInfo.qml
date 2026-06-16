@@ -128,7 +128,7 @@ PageType {
                               root.pageSettingsServerData : root.pageSettingsServerProtocols
 
             background: Rectangle {
-                color: AmneziaStyle.color.transparent
+                color: PvnStyle.color.transparent
             }
 
 
@@ -188,3 +188,4 @@ PageType {
         }
     }
 }
+

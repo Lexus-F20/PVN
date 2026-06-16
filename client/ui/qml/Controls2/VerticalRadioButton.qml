@@ -14,19 +14,19 @@ RadioButton {
     property int textElide: Qt.ElideRight
     property string descriptionText
 
-    property string hoveredColor: AmneziaStyle.color.barelyTranslucentWhite
-    property string defaultColor: AmneziaStyle.color.transparent
-    property string disabledColor: AmneziaStyle.color.transparent
-    property string selectedColor: AmneziaStyle.color.transparent
+    property string hoveredColor: PvnStyle.color.barelyTranslucentWhite
+    property string defaultColor: PvnStyle.color.transparent
+    property string disabledColor: PvnStyle.color.transparent
+    property string selectedColor: PvnStyle.color.transparent
 
-    property string textColor: AmneziaStyle.color.paleGray
-    property string textDisabledColor: AmneziaStyle.color.mutedGray
-    property string selectedTextColor: AmneziaStyle.color.goldenApricot
-    property string selectedTextDisabledColor: AmneziaStyle.color.burntOrange
-    property string descriptionColor: AmneziaStyle.color.mutedGray
-    property string descriptionDisabledColor: AmneziaStyle.color.charcoalGray
+    property string textColor: PvnStyle.color.paleGray
+    property string textDisabledColor: PvnStyle.color.mutedGray
+    property string selectedTextColor: PvnStyle.color.goldenApricot
+    property string selectedTextDisabledColor: PvnStyle.color.burntOrange
+    property string descriptionColor: PvnStyle.color.mutedGray
+    property string descriptionDisabledColor: PvnStyle.color.charcoalGray
 
-    property string borderFocusedColor: AmneziaStyle.color.paleGray
+    property string borderFocusedColor: PvnStyle.color.paleGray
     property int borderFocusedWidth: 1
 
     property string imageSource
@@ -71,7 +71,7 @@ RadioButton {
 
         anchors.verticalCenter: parent.verticalCenter
 
-        border.color: root.focus ? root.borderFocusedColor : AmneziaStyle.color.transparent
+        border.color: root.focus ? root.borderFocusedColor : PvnStyle.color.transparent
         border.width: root.focus ? root.borderFocusedWidth : 0
 
         implicitWidth: 56
@@ -194,5 +194,6 @@ RadioButton {
         enabled: false
     }
 }
+
 
 

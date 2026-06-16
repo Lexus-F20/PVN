@@ -76,10 +76,10 @@ PageType {
                 descriptionText: site || ""
 
                 descriptionOnTop: true
-                textColor: AmneziaStyle.color.goldenApricot
+                textColor: PvnStyle.color.goldenApricot
 
                 rightImageSource: "qrc:/images/controls/copy.svg"
-                rightImageColor: AmneziaStyle.color.paleGray
+                rightImageColor: PvnStyle.color.paleGray
 
                 clickedFunction: function() {
                     GC.copyToClipBoard(descriptionText)
@@ -128,3 +128,4 @@ PageType {
         }
     }
 }
+

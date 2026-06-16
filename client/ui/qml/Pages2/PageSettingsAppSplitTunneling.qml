@@ -194,7 +194,7 @@ PageType {
 
                 text: appPath
                 rightImageSource: "qrc:/images/controls/trash.svg"
-                rightImageColor: AmneziaStyle.color.paleGray
+                rightImageColor: PvnStyle.color.paleGray
 
                 clickedFunction: function() {
                     var headerText = qsTr("Remove ") + appPath + "?"
@@ -222,7 +222,7 @@ PageType {
         
         height: addAppButton.implicitHeight + 48 + PageController.safeAreaBottomMargin
         
-        color: AmneziaStyle.color.midnightBlack
+        color: PvnStyle.color.midnightBlack
         
         RowLayout {
             id: addAppButton
@@ -273,3 +273,4 @@ PageType {
         anchors.fill: parent
     }
 }
+

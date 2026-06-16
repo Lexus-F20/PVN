@@ -535,8 +535,8 @@ Already installed containers were found on the server. All installed containers 
     <message>
         <location filename="../ui/notificationhandler.cpp" line="57"/>
         <location filename="../ui/notificationhandler.cpp" line="64"/>
-        <source>AmneziaVPN</source>
-        <translation>AmneziaVPN</translation>
+        <source>PVN</source>
+        <translation>PVN</translation>
     </message>
     <message>
         <location filename="../ui/notificationhandler.cpp" line="58"/>
@@ -550,8 +550,8 @@ Already installed containers were found on the server. All installed containers 
     </message>
     <message>
         <location filename="../ui/notificationhandler.cpp" line="88"/>
-        <source>AmneziaVPN notification</source>
-        <translation>Уведомление AmneziaVPN</translation>
+        <source>PVN notification</source>
+        <translation>Уведомление PVN</translation>
     </message>
     <message>
         <location filename="../ui/notificationhandler.cpp" line="89"/>
@@ -1630,8 +1630,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettings.qml" line="177"/>
-        <source>About AmneziaVPN</source>
-        <translation>Об AmneziaVPN</translation>
+        <source>About PVN</source>
+        <translation>Об PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettings.qml" line="188"/>
@@ -1910,8 +1910,8 @@ Thank you for staying with us!</source>
     <name>PageSettingsApiNativeConfigs</name>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiNativeConfigs.qml" line="23"/>
-        <source>Save AmneziaVPN config</source>
-        <translation>Сохранить конфигурацию AmneziaVPN</translation>
+        <source>Save PVN config</source>
+        <translation>Сохранить конфигурацию PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiNativeConfigs.qml" line="60"/>
@@ -2156,8 +2156,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="113"/>
-        <source>Save AmneziaVPN config</source>
-        <translation>Сохранить конфигурацию AmneziaVPN</translation>
+        <source>Save PVN config</source>
+        <translation>Сохранить конфигурацию PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="114"/>
@@ -2375,8 +2375,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="243"/>
-        <source>All settings will be reset to default. All installed AmneziaVPN services will still remain on the server.</source>
-        <translation>Все настройки будут сброшены до значений по умолчанию. Все установленные сервисы AmneziaVPN останутся на сервере.</translation>
+        <source>All settings will be reset to default. All installed PVN services will still remain on the server.</source>
+        <translation>Все настройки будут сброшены до значений по умолчанию. Все установленные сервисы PVN останутся на сервере.</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="244"/>
@@ -2413,8 +2413,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="90"/>
-        <source>The backup will contain your passwords and private keys for all servers added to AmneziaVPN. Keep this information in a secure place.</source>
-        <translation>Резервная копия будет содержать ваши пароли и закрытые ключи для всех серверов, добавленных в AmneziaVPN. Храните эту информацию в надежном месте.</translation>
+        <source>The backup will contain your passwords and private keys for all servers added to PVN. Keep this information in a secure place.</source>
+        <translation>Резервная копия будет содержать ваши пароли и закрытые ключи для всех серверов, добавленных в PVN. Храните эту информацию в надежном месте.</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="104"/>
@@ -2805,8 +2805,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="182"/>
-        <source>AmneziaVPN logs</source>
-        <translation>AmneziaVPN logs</translation>
+        <source>PVN logs</source>
+        <translation>PVN logs</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="143"/>
@@ -2825,8 +2825,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="211"/>
-        <source>AmneziaVPN-service logs</source>
-        <translation>AmneziaVPN-service logs</translation>
+        <source>PVN-service logs</source>
+        <translation>PVN-service logs</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="80"/>
@@ -2951,7 +2951,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="159"/>
-        <source>All installed AmneziaVPN services will still remain on the server.</source>
+        <source>All installed PVN services will still remain on the server.</source>
         <translation>Все установленные сервисы и протоколы Amnezia останутся на сервере.</translation>
     </message>
     <message>
@@ -3424,7 +3424,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="300"/>
-        <source>Configure Amnezia VPN on your own server</source>
+        <source>Configure PVN on your own server</source>
         <translation>Настроить VPN на собственном сервере</translation>
     </message>
     <message>
@@ -3767,8 +3767,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="50"/>
-        <source>Save AmneziaVPN config</source>
-        <translation>Сохранить конфигурацию AmneziaVPN</translation>
+        <source>Save PVN config</source>
+        <translation>Сохранить конфигурацию PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="57"/>
@@ -3812,8 +3812,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="120"/>
-        <source>For the AmneziaVPN app</source>
-        <translation>Для приложения AmneziaVPN</translation>
+        <source>For the PVN app</source>
+        <translation>Для приложения PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="135"/>
@@ -3969,8 +3969,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="30"/>
-        <source>Save AmneziaVPN config</source>
-        <translation>Сохранить конфигурацию AmneziaVPN</translation>
+        <source>Save PVN config</source>
+        <translation>Сохранить конфигурацию PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="150"/>
@@ -4707,14 +4707,14 @@ Thank you for staying with us!</source>
         <source>OpenVPN is one of the most popular and reliable VPN protocols. It uses SSL/TLS encryption, supports a wide variety of devices and operating systems, and is continuously improved by the community due to its open-source nature. It provides a good balance between speed and security but is easily recognized by DPI systems, making it susceptible to blocking.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Normal battery consumption on mobile devices
 * Flexible customization for various devices and OS
 * Operates over both TCP and UDP protocols</source>
         <translation>OpenVPN — один из самых популярных и надежных VPN-протоколов. Он использует шифрование SSL/TLS, совместим со множеством устройств и ОС, а благодаря открытому коду постоянно совершенствуется сообществом. Имеет хороший баланс скорости и безопасности, но легко распознаётся системами DPI, что делает его уязвимым к блокировкам.
 
 Особенности:
-* Доступен во всех приложениях AmneziaVPN
+* Доступен во всех приложениях PVN
 * Нормальное энергопотребление на мобильных устройствах
 * Гибкие настройки под разные устройства и ОС
 * Работает по TCP и UDP</translation>
@@ -4724,7 +4724,7 @@ Features:
         <source>Shadowsocks is based on the SOCKS5 protocol and encrypts connections using AEAD cipher. Although designed to be discreet, it doesn&apos;t mimic a standard HTTPS connection and can be detected by some DPI systems. Due to limited support in Amnezia, we recommend using the AmneziaWG protocol.
 
 Features:
-* Available in AmneziaVPN only on desktop platforms
+* Available in PVN only on desktop platforms
 * Customizable encryption protocol
 * Detectable by some DPI systems
 * Operates over TCP protocol
@@ -4732,7 +4732,7 @@ Features:
         <translation>Shadowsocks основан на протоколе SOCKS5 и шифрует соединение алгоритмом AEAD. Он разработан так, чтобы быть малозаметным, однако не идентичен HTTPS, поэтому может распознаваться некоторыми системами DPI. В связи с ограниченной поддержкой в Amnezia, рекомендуем использовать протокол AmneziaWG.
 
 Особенности:
-* Доступен только на ПК в AmneziaVPN
+* Доступен только на ПК в PVN
 * Настраиваемое шифрование
 * Может обнаруживаться некоторыми DPI-системами
 * Работает по протоколу TCP</translation>
@@ -4748,7 +4748,7 @@ The Cloak plugin further protects the connection from DPI detection. It modifies
 In regions with heavy internet censorship, we strongly recommend using OpenVPN with Cloak from your first connection.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * High power consumption on mobile devices
 * Flexible configuration options
 * Undetectable by DPI systems
@@ -4762,7 +4762,7 @@ OpenVPN надёжно шифрует весь интернет-трафик м�
 Если в вашем регионе сильная интернет-цензура, мы рекомендуем сразу использовать OpenVPN с плагином Cloak.
 
 Особенности:
-* Доступен на всех платформах AmneziaVPN
+* Доступен на всех платформах PVN
 * Высокое энергопотребление на мобильных устройствах
 * Гибкие настройки
 * Незаметен для систем DPI-анализа
@@ -4773,7 +4773,7 @@ OpenVPN надёжно шифрует весь интернет-трафик м�
         <source>WireGuard is a modern, streamlined VPN protocol offering stable connectivity and excellent performance across all devices. It uses fixed encryption settings, delivering lower latency and higher data transfer speeds compared to OpenVPN. However, WireGuard is easily identifiable by DPI systems due to its distinctive packet signatures, making it susceptible to blocking.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Low power consumption on mobile devices
 * Minimal configuration required
 * Easily detected by DPI systems (susceptible to blocking)
@@ -4783,7 +4783,7 @@ Features:
 Однако WireGuard легко распознаётся системами DPI из-за характерных сигнатур трафика, что делает его уязвимым к блокировкам.
 
 Особенности:
-* Доступен на всех платформах AmneziaVPN
+* Доступен на всех платформах PVN
 * Низкое энергопотребление на мобильных устройствах
 * Минимум настроек
 * Легко определяется DPI-системами (подвержен блокировкам)
@@ -4796,7 +4796,7 @@ Features:
 AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Low battery consumption on mobile devices
 * Minimal settings required
 * Undetectable by traffic analysis systems (DPI)
@@ -4806,7 +4806,7 @@ Features:
 Таким образом, AmneziaWG идеально подойдёт тем, кто ищет быстрое и незаметное VPN-соединение.
 
 Особенности:
-* Доступен во всех версиях AmneziaVPN
+* Доступен во всех версиях PVN
 * Низкое энергопотребление на мобильных устройствах
 * Минимум настроек
 * Незаметен для систем анализа трафика (DPI)
@@ -4841,7 +4841,7 @@ REALITY распознаёт системы блокировки во время
         <source>IKEv2, combined with IPSec encryption, is a modern and reliable VPN protocol. It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. While it provides good security and speed, it&apos;s easily recognized by DPI systems and susceptible to blocking.
 
 Features:
-* Available in AmneziaVPN only on Windows
+* Available in PVN only on Windows
 * Low battery consumption on mobile devices
 * Minimal configuration required
 * Detectable by DPI analysis systems(easily blocked)
@@ -4849,7 +4849,7 @@ Features:
         <translation>IKEv2 — современный и стабильный VPN-протокол, работающий совместно с шифрованием IPSec. Он обеспечивает быстрое переподключение при смене сети или устройства, отлично подходит для динамичных сетевых условий. Несмотря на хорошую скорость и безопасность, легко распознаётся системами DPI и подвержен блокировкам.
 
 Особенности:
-* Доступен в AmneziaVPN только на Windows
+* Доступен в PVN только на Windows
 * Низкое энергопотребление на мобильных устройствах
 * Минимум настроек
 * Распознаётся DPI-системами (легко блокируется)
@@ -4882,7 +4882,7 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
 
 				Features:
 
-				* Available on all AmneziaVPN platforms
+				* Available on all PVN platforms
 				* Low battery consumption on mobile devices
 				* Minimal settings required
 				* Undetectable by traffic analysis systems (DPI)
@@ -4894,7 +4894,7 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
 				Таким образом, AmneziaWG идеально подойдёт тем, кто ищет быстрое и незаметное VPN-соединение.
 
 				Особенности:
-				* Доступен во всех версиях AmneziaVPN
+				* Доступен во всех версиях PVN
 				* Низкое энергопотребление на мобильных устройствах
 				* Минимум настроек
 				* Незаметен для систем анализа трафика (DPI)
@@ -5400,3 +5400,4 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
     </message>
 </context>
 </TS>
+

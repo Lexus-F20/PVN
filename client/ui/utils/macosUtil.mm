@@ -13,7 +13,7 @@
 //     QProcess process;
 //     process.start(
 //             "osascript",
-//             { "-e tell application \"System Events\" to get properties of (get application process \"AmneziaVPN\")" });
+//             { "-e tell application \"System Events\" to get properties of (get application process \"PVN\")" });
 //     process.waitForFinished(3000);
 //     const auto output = QString::fromLocal8Bit(process.readAllStandardOutput());
 
@@ -85,3 +85,4 @@ void fixWidget(QWidget *widget)
     [[window standardWindowButton:NSWindowZoomButton] setHidden:YES];
     [[window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
 }
+

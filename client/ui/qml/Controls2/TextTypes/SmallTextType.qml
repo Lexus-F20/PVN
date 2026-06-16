@@ -6,10 +6,11 @@ Text {
     lineHeight: 20 + LanguageUiController.getLineHeightAppend()
     lineHeightMode: Text.FixedHeight
 
-    color: AmneziaStyle.color.paleGray
+    color: PvnStyle.color.paleGray
     font.pixelSize: 14
     font.weight: 400
     font.family: "PT Root UI VF"
 
     wrapMode: Text.WordWrap
 }
+

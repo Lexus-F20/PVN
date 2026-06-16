@@ -1,11 +1,11 @@
 set(CPACK_PACKAGE_VENDOR            PVN)
-set(CPACK_PACKAGE_VERSION           ${AMNEZIAVPN_VERSION})
+set(CPACK_PACKAGE_VERSION           ${PVN_VERSION})
 if(WIN32)
-    set(CPACK_PACKAGE_FILE_NAME "PVN_${AMNEZIAVPN_VERSION}_windows_x64")
+    set(CPACK_PACKAGE_FILE_NAME "PVN_${PVN_VERSION}_windows_x64")
 elseif(APPLE AND NOT IOS AND NOT MACOS_NE)
-    set(CPACK_PACKAGE_FILE_NAME "PVN_${AMNEZIAVPN_VERSION}_macos_x64")
+    set(CPACK_PACKAGE_FILE_NAME "PVN_${PVN_VERSION}_macos_x64")
 elseif(LINUX AND NOT ANDROID)
-    set(CPACK_PACKAGE_FILE_NAME "PVN_${AMNEZIAVPN_VERSION}_linux_x64")
+    set(CPACK_PACKAGE_FILE_NAME "PVN_${PVN_VERSION}_linux_x64")
 endif()
 set(CPACK_PACKAGE_INSTALL_DIRECTORY PVN)
 set(CPACK_PACKAGE_EXECUTABLES       PVN PVN)
@@ -55,9 +55,9 @@ list(APPEND CMAKE_MODULE_PATH           ${CMAKE_SOURCE_DIR}/deploy/data/macos)
 
 if(LINUX AND NOT ANDROID)
     install(FILES
-        ${CMAKE_SOURCE_DIR}/deploy/data/linux/AmneziaVPN.service
-        ${CMAKE_SOURCE_DIR}/deploy/data/linux/AmneziaVPN.png
-        ${CMAKE_SOURCE_DIR}/deploy/data/linux/AmneziaVPN.desktop
+        ${CMAKE_SOURCE_DIR}/deploy/data/linux/PVN.service
+        ${CMAKE_SOURCE_DIR}/deploy/data/linux/PVN.png
+        ${CMAKE_SOURCE_DIR}/deploy/data/linux/PVN.desktop
         ${CMAKE_SOURCE_DIR}/deploy/data/linux/post_install.sh
         ${CMAKE_SOURCE_DIR}/deploy/data/linux/post_uninstall.sh
         DESTINATION "."
@@ -75,15 +75,15 @@ if(WIN32)
 endif()
 
 if (APPLE AND NOT IOS AND NOT MACOS_NE)
-    install(FILES ${CMAKE_SOURCE_DIR}/deploy/data/macos/AmneziaVPN.plist
-        DESTINATION "AmneziaVPN.app/Contents/Resources"
+    install(FILES ${CMAKE_SOURCE_DIR}/deploy/data/macos/PVN.plist
+        DESTINATION "PVN.app/Contents/Resources"
         COMPONENT PVN
     )
 endif()
 
 include(CPackIFW)
 cpack_ifw_configure_component(PVN
-    VERSION ${AMNEZIAVPN_VERSION}
+    VERSION ${PVN_VERSION}
     RELEASE_DATE ${RELEASE_DATE}
     REQUIRES_ADMIN_RIGHTS
     FORCED_INSTALLATION
@@ -96,3 +96,4 @@ cpack_add_component(Uninstall
     REQUIRES_ADMIN_RIGHTS
     DISABLED
 )
+

@@ -41,7 +41,7 @@ public:
     ErrorCode start() override;
     void stop() override;
 
-    static QString tunnelName() { return "AmneziaVPN IKEv2"; }
+    static QString tunnelName() { return "PVN IKEv2"; }
 
 public:
     void newConnectionStateEventReceived(UINT unMsg,
@@ -67,3 +67,4 @@ private:
 DWORD CALLBACK rasCallback(UINT msg, RASCONNSTATE rascs, DWORD err);
 
 #endif // IKEV2_VPN_PROTOCOL_WINDOWS_H
+

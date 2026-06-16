@@ -24,7 +24,7 @@ FocusScope {
         ImageButtonType {
             id: backButton
             image: backButtonImage
-            imageColor: AmneziaStyle.color.paleGray
+            imageColor: PvnStyle.color.paleGray
 
             implicitWidth: 40
             implicitHeight: 40
@@ -42,10 +42,11 @@ FocusScope {
             id: background
             Layout.fillWidth: true
 
-            color: AmneziaStyle.color.transparent
+            color: PvnStyle.color.transparent
         }
     }
 
     Keys.onEnterPressed: backButton.clicked()
     Keys.onReturnPressed: backButton.clicked()
 }
+

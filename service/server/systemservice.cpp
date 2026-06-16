@@ -15,7 +15,7 @@ char** s_argv = nullptr;
 SystemService::SystemService(int argc, char **argv)
     : QtService<QCoreApplication>(argc, argv, SERVICE_NAME)
 {
-    setServiceDescription("Service for AmneziaVPN");
+    setServiceDescription("Service for PVN");
 
 #ifdef Q_OS_WIN
     if(argc > 2){
@@ -47,3 +47,4 @@ void SystemService::stop()
 {
     delete m_localServer;
 }
+

@@ -11,18 +11,18 @@ RadioButton {
     property string bodyText
     property string footerText
 
-    property string hoveredColor: AmneziaStyle.color.barelyTranslucentWhite
-    property string defaultColor: AmneziaStyle.color.transparent
-    property string disabledColor: AmneziaStyle.color.transparent
-    property string pressedColor: AmneziaStyle.color.barelyTranslucentWhite
-    property string selectedColor: AmneziaStyle.color.transparent
+    property string hoveredColor: PvnStyle.color.barelyTranslucentWhite
+    property string defaultColor: PvnStyle.color.transparent
+    property string disabledColor: PvnStyle.color.transparent
+    property string pressedColor: PvnStyle.color.barelyTranslucentWhite
+    property string selectedColor: PvnStyle.color.transparent
 
-    property string textColor: AmneziaStyle.color.midnightBlack
+    property string textColor: PvnStyle.color.midnightBlack
 
-    property string pressedBorderColor: AmneziaStyle.color.softGoldenApricot
-    property string selectedBorderColor: AmneziaStyle.color.goldenApricot
-    property string defaultBodredColor: AmneziaStyle.color.transparent
-    property string focusBorderColor: AmneziaStyle.color.paleGray
+    property string pressedBorderColor: PvnStyle.color.softGoldenApricot
+    property string selectedBorderColor: PvnStyle.color.goldenApricot
+    property string defaultBodredColor: PvnStyle.color.transparent
+    property string focusBorderColor: PvnStyle.color.paleGray
     property int borderWidth: 0
 
     implicitWidth: content.implicitWidth
@@ -113,7 +113,7 @@ RadioButton {
         Text {
             text: root.headerText
             wrapMode: Text.WordWrap
-            color: AmneziaStyle.color.paleGray
+            color: PvnStyle.color.paleGray
             font.pixelSize: 25
             font.weight: 700
             font.family: "PT Root UI VF"
@@ -128,7 +128,7 @@ RadioButton {
         Text {
             text: root.bodyText
             wrapMode: Text.WordWrap
-            color: AmneziaStyle.color.paleGray
+            color: PvnStyle.color.paleGray
             font.pixelSize: 16
             font.weight: 400
             font.family: "PT Root UI VF"
@@ -144,7 +144,7 @@ RadioButton {
             text: root.footerText
             wrapMode: Text.WordWrap
             visible: root.footerText !== ""
-            color: AmneziaStyle.color.mutedGray
+            color: PvnStyle.color.mutedGray
             font.pixelSize: 13
             font.weight: 400
             font.family: "PT Root UI VF"
@@ -164,3 +164,4 @@ RadioButton {
         enabled: false
     }
 }
+

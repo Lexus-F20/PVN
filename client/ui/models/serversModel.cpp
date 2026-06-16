@@ -13,7 +13,7 @@
 #include "core/utils/networkUtilities.h"
 
 #if defined(Q_OS_IOS) || defined(MACOS_NE)
-    #include <AmneziaVPN-Swift.h>
+    #include <PVN-Swift.h>
 #endif
 
 #include "core/utils/api/apiUtils.h"
@@ -152,4 +152,5 @@ ServerCredentials ServersModel::serverCredentials(int index) const
     }
     return m_descriptions.at(index).selfHostedSshCredentials;
 }
+
 

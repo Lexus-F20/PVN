@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.25.0 FATAL_ERROR)
 
 set(PROJECT PVN-service)
-project(${PROJECT} VERSION ${AMNEZIAVPN_VERSION})
+project(${PROJECT} VERSION ${PVN_VERSION})
 
 if (APPLE)
     # CMAKE_INSTALL_BINDIR must be called before find_package(Qt6) for
     # Qt to configure prefixes properly
     # FIXME: make Amnezia-service a bundle and remove this hack completely
-    set(CMAKE_INSTALL_BINDIR "AmneziaVPN.app/Contents/MacOS")
+    set(CMAKE_INSTALL_BINDIR "PVN.app/Contents/MacOS")
 endif()
 
 set(CMAKE_CXX_STANDARD 20)
@@ -138,8 +138,8 @@ set(RESOURCES)
 
 if(WIN32)
     configure_file(
-        ${CMAKE_CURRENT_LIST_DIR}/amneziavpn-service.rc.in
-        ${CMAKE_CURRENT_BINARY_DIR}/amneziavpn-service.rc
+        ${CMAKE_CURRENT_LIST_DIR}/PVN-service.rc.in
+        ${CMAKE_CURRENT_BINARY_DIR}/PVN-service.rc
     )
 
     set(HEADERS ${HEADERS}
@@ -183,7 +183,7 @@ if(WIN32)
     )
 
     set(RESOURCES ${RESOURCES}
-        ${CMAKE_CURRENT_BINARY_DIR}/amneziavpn-service.rc
+        ${CMAKE_CURRENT_BINARY_DIR}/PVN-service.rc
     )
 
     set(LIBS
@@ -461,3 +461,4 @@ qt_generate_deploy_app_script(
 install(SCRIPT ${QT_DEPLOY_SCRIPT}
     COMPONENT PVN
 )
+

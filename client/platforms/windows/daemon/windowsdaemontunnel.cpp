@@ -34,7 +34,7 @@ int WindowsDaemonTunnel::run(QStringList& tokens) {
 
   QCoreApplication app();
 
-  QCoreApplication::setApplicationName("Amnezia VPN Tunnel");
+  QCoreApplication::setApplicationName("PVN Tunnel");
   QCoreApplication::setApplicationVersion(Constants::versionString());
 
   if (tokens.length() != 2) {
@@ -75,3 +75,4 @@ int WindowsDaemonTunnel::run(QStringList& tokens) {
 
 //static Command::RegistrationProxy<WindowsDaemonTunnel>
 //    s_commandWindowsDaemonTunnel;
+

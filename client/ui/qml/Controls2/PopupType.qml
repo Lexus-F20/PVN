@@ -25,7 +25,7 @@ Popup {
 
     Overlay.modal: Rectangle {
         visible: root.closeButtonVisible
-        color: AmneziaStyle.color.translucentMidnightBlack
+        color: PvnStyle.color.translucentMidnightBlack
     }
 
     onOpened: {
@@ -91,11 +91,11 @@ Popup {
                 implicitHeight: 32
 
                 defaultColor: "white"
-                hoveredColor: AmneziaStyle.color.lightGray
-                pressedColor: AmneziaStyle.color.lightGray
-                disabledColor: AmneziaStyle.color.charcoalGray
+                hoveredColor: PvnStyle.color.lightGray
+                pressedColor: PvnStyle.color.lightGray
+                disabledColor: PvnStyle.color.charcoalGray
 
-                textColor: AmneziaStyle.color.midnightBlack
+                textColor: PvnStyle.color.midnightBlack
                 borderWidth: 0
 
                 text: qsTr("Close")
@@ -107,3 +107,4 @@ Popup {
         }
     }
 }
+

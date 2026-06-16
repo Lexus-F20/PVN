@@ -1,7 +1,7 @@
 import Foundation
 import os.log
 
-private let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.AmneziaVPN"
+private let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.PVN"
 private let wireGuardSystemLogger = Logger(subsystem: subsystemIdentifier, category: "WireGuard")
 private let openVPNSystemLogger = Logger(subsystem: subsystemIdentifier, category: "OpenVPN")
 private let xraySystemLogger = Logger(subsystem: subsystemIdentifier, category: "Xray")
@@ -74,3 +74,4 @@ public func neLog(_ type: OSLogType, title: String = "", message: String) {
     logToSystem(networkExtensionLogger, type: type, prefix: "NE", title: title, message: message)
     Log.log(type, title: "NE: \(title)", message: message)
 }
+

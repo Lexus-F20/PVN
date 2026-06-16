@@ -1,4 +1,4 @@
-# Amnezia VPN
+# PVN
 
 ### _The best client for self-hosted VPN_
 
@@ -40,7 +40,7 @@
 
 - [https://amnezia.org](https://amnezia.org) - Project website | [Alternative link (mirror)](https://storage.googleapis.com/kldscp/amnezia.org)
 - [https://docs.amnezia.org](https://docs.amnezia.org) - Documentation
-- [https://www.reddit.com/r/AmneziaVPN](https://www.reddit.com/r/AmneziaVPN) - Reddit  
+- [https://www.reddit.com/r/PVN](https://www.reddit.com/r/PVN) - Reddit  
 - [https://t.me/amnezia_vpn_en](https://t.me/amnezia_vpn_en) - Telegram support channel (English) 
 - [https://t.me/amnezia_vpn_ir](https://t.me/amnezia_vpn_ir) - Telegram support channel (Farsi) 
 - [https://t.me/amnezia_vpn_mm](https://t.me/amnezia_vpn_mm) - Telegram support channel (Myanmar)  
@@ -49,7 +49,7 @@
 
 ## Tech
 
-AmneziaVPN uses several open-source projects to work:
+PVN uses several open-source projects to work:
 
 - [OpenSSL](https://www.openssl.org/)
 - [OpenVPN](https://openvpn.net/)
@@ -65,7 +65,7 @@ AmneziaVPN uses several open-source projects to work:
 Download the most actual translation files.
 
 Go to ["Actions" tab](https://github.com/amnezia-vpn/amnezia-client/actions?query=is%3Asuccess+branch%3Adev), click on the first line.
-Then scroll down to the "Artifacts" section and download "AmneziaVPN_translations".
+Then scroll down to the "Artifacts" section and download "PVN_translations".
 
 Unzip this file.
 Each *.ts file contains strings for one corresponding language.
@@ -155,7 +155,7 @@ deploy/build.bat --installer all
   - `Visual Studio Code` with `Qt Extension Pack`
   - and so on
 
-* To use `Xcode`, you have to configure project first by using `cmake`. The easiest way to do it is to use `Qt Creator` for configuration. Then open `AmneziaVPN.xcodeproj` file from the build folder by using `Xcode`. Note that none of the files changed are saved - the files actually getting changed in build directory. Copy them manually if necessary
+* To use `Xcode`, you have to configure project first by using `cmake`. The easiest way to do it is to use `Qt Creator` for configuration. Then open `PVN.xcodeproj` file from the build folder by using `Xcode`. Note that none of the files changed are saved - the files actually getting changed in build directory. Copy them manually if necessary
 
 * `Android studio` could be used in the same way - just configure the project by using `cmake` manually or by using `Qt Creator`. Open `<build-dir>/client/android-build` in `Android studio` then. Do not forget to copy the changes - everything you do is saved under the build directory actually.
 
@@ -172,7 +172,7 @@ This project is licensed under the GNU General Public License v3.0 (see LICENSE)
 
 ## Donate
 
-Patreon: [https://www.patreon.com/amneziavpn](https://www.patreon.com/amneziavpn)
+Patreon: [https://www.patreon.com/PVN](https://www.patreon.com/PVN)
 
 Bitcoin: bc1qmhtgcf9637rl3kqyy22r2a8wa8laka4t9rx2mf <br>
 USDT BEP20: 0x6abD576765a826f87D1D95183438f9408C901bE4 <br>
@@ -183,3 +183,4 @@ TON: UQDpU1CyKRmg7L8mNScKk9FRc2SlESuI7N-Hby4nX-CcVmns
 
 This project is tested with BrowserStack.
 We express our gratitude to [BrowserStack](https://www.browserstack.com) for supporting our project.
+

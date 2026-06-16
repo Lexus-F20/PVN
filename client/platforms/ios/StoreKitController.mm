@@ -4,7 +4,7 @@
 
 #import "StoreKitController.h"
 #import <StoreKit/StoreKit.h>
-#import <AmneziaVPN-Swift.h>
+#import <PVN-Swift.h>
 
 #include <QtCore/QDebug>
 #include <QtCore/QString>
@@ -112,3 +112,4 @@ API_AVAILABLE(ios(15.0), macos(12.0))
 }
 
 @end
+

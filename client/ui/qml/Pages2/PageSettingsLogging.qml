@@ -128,7 +128,7 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
 
-                color: AmneziaStyle.color.mutedGray
+                color: PvnStyle.color.mutedGray
 
                 text: description
             }
@@ -229,3 +229,4 @@ PageType {
         }
     }
 }
+

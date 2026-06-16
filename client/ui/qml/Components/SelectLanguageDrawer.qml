@@ -111,8 +111,8 @@ DrawerType2 {
                         indicator: Rectangle {
                             width: parent.width - 1
                             height: parent.height
-                            color: radioButton.hovered ? AmneziaStyle.color.slateGray : AmneziaStyle.color.onyxBlack
-                            border.color: radioButton.focus ? AmneziaStyle.color.paleGray : AmneziaStyle.color.transparent
+                            color: radioButton.hovered ? PvnStyle.color.slateGray : PvnStyle.color.onyxBlack
+                            border.color: radioButton.focus ? PvnStyle.color.paleGray : PvnStyle.color.transparent
                             border.width: radioButton.focus ? 1 : 0
 
                             Behavior on color {
@@ -170,3 +170,4 @@ DrawerType2 {
         }
     }
 }
+

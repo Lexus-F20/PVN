@@ -11,26 +11,26 @@ CheckBox {
     id: root
 
     property string descriptionText
-    property string descriptionTextColor: AmneziaStyle.color.mutedGray
-    property string descriptionTextDisabledColor: AmneziaStyle.color.charcoalGray
+    property string descriptionTextColor: PvnStyle.color.mutedGray
+    property string descriptionTextDisabledColor: PvnStyle.color.charcoalGray
 
-    property string textColor: AmneziaStyle.color.paleGray
-    property string textDisabledColor: AmneziaStyle.color.mutedGray
+    property string textColor: PvnStyle.color.paleGray
+    property string textDisabledColor: PvnStyle.color.mutedGray
 
-    property string hoveredColor: AmneziaStyle.color.barelyTranslucentWhite
-    property string defaultColor: AmneziaStyle.color.transparent
-    property string pressedColor: AmneziaStyle.color.barelyTranslucentWhite
+    property string hoveredColor: PvnStyle.color.barelyTranslucentWhite
+    property string defaultColor: PvnStyle.color.transparent
+    property string pressedColor: PvnStyle.color.barelyTranslucentWhite
 
-    property string defaultBorderColor: AmneziaStyle.color.paleGray
-    property string checkedBorderColor: AmneziaStyle.color.goldenApricot
-    property string checkedBorderDisabledColor: AmneziaStyle.color.deepBrown
+    property string defaultBorderColor: PvnStyle.color.paleGray
+    property string checkedBorderColor: PvnStyle.color.goldenApricot
+    property string checkedBorderDisabledColor: PvnStyle.color.deepBrown
 
-    property string borderFocusedColor: AmneziaStyle.color.paleGray
+    property string borderFocusedColor: PvnStyle.color.paleGray
 
-    property string checkedImageColor: AmneziaStyle.color.goldenApricot
-    property string pressedImageColor: AmneziaStyle.color.burntOrange
-    property string defaultImageColor: AmneziaStyle.color.transparent
-    property string checkedDisabledImageColor: AmneziaStyle.color.mutedBrown
+    property string checkedImageColor: PvnStyle.color.goldenApricot
+    property string pressedImageColor: PvnStyle.color.burntOrange
+    property string defaultImageColor: PvnStyle.color.transparent
+    property string checkedDisabledImageColor: PvnStyle.color.mutedBrown
 
     property string imageSource: "qrc:/images/controls/check.svg"
 
@@ -64,8 +64,8 @@ CheckBox {
     focusPolicy: Qt.NoFocus
 
     background: Rectangle {
-        color: AmneziaStyle.color.transparent
-        border.color: root.focus ? borderFocusedColor : AmneziaStyle.color.transparent
+        color: PvnStyle.color.transparent
+        border.color: root.focus ? borderFocusedColor : PvnStyle.color.transparent
         border.width: 1
         radius: 16
     }
@@ -96,7 +96,7 @@ CheckBox {
             anchors.centerIn: parent
             width: 24
             height: 24
-            color: AmneziaStyle.color.transparent
+            color: PvnStyle.color.transparent
             border.color: root.checked ?
                               (root.enabled ?
                                    checkedBorderColor :
@@ -185,5 +185,6 @@ CheckBox {
         event.accepted = true
     }
 }
+
 
 

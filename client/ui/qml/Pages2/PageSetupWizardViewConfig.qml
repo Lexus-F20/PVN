@@ -106,11 +106,11 @@ PageType {
 
                 implicitHeight: 32
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.goldenApricot
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.goldenApricot
 
                 text: showContent ? qsTr("Collapse content") : qsTr("Show content")
 
@@ -150,8 +150,8 @@ PageType {
 
                 iconPath: "qrc:/images/controls/alert-circle.svg"
 
-                textColor: AmneziaStyle.color.vibrantRed
-                imageColor: AmneziaStyle.color.vibrantRed
+                textColor: PvnStyle.color.vibrantRed
+                imageColor: PvnStyle.color.vibrantRed
             }
 
             WarningType {
@@ -175,7 +175,7 @@ PageType {
                 implicitHeight: configContent.implicitHeight
 
                 radius: 10
-                color: AmneziaStyle.color.onyxBlack
+                color: PvnStyle.color.onyxBlack
 
                 visible: showContent
 
@@ -228,3 +228,4 @@ PageType {
         }
     }
 }
+

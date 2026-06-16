@@ -132,7 +132,7 @@ PageType {
                             descriptionOnTop: true
 
                             rightImageSource: "qrc:/images/controls/copy.svg"
-                            rightImageColor: AmneziaStyle.color.paleGray
+                            rightImageColor: PvnStyle.color.paleGray
 
                             visible: SettingsController.getInstallationUuid() !== ""
                             clickedFunction: function() {
@@ -201,7 +201,7 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.bottomMargin: 24
 
-                color: AmneziaStyle.color.charcoalGray
+                color: PvnStyle.color.charcoalGray
                 text: qsTr("Other connection options")
             }
         }
@@ -247,11 +247,11 @@ PageType {
 
                 visible: Qt.platform.os !== "ios" && !IsMacOsNeBuild
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.goldenApricot
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.goldenApricot
 
                 text: qsTr("PVN GitHub")
 
@@ -265,7 +265,7 @@ PageType {
     }
 
     property list<QtObject> variants: [
-        amneziaVpn,
+        PVN,
         selfHostVpn,
         backupRestore,
         fileOpen,
@@ -275,7 +275,7 @@ PageType {
     ]
     
     QtObject {
-        id: amneziaVpn
+        id: PVN
 
         property string title: qsTr("PVN")
         property string description: qsTr("The easiest way to connect to the VPN")
@@ -387,3 +387,5 @@ PageType {
         }
     }
 }
+
+

@@ -14,7 +14,7 @@ import org.json.JSONObject
 
 private const val TAG = "Protocol"
 
-const val VPN_SESSION_NAME = "AmneziaVPN"
+const val VPN_SESSION_NAME = "PVN"
 
 private const val SPLIT_TUNNEL_DISABLE = 0
 private const val SPLIT_TUNNEL_INCLUDE = 1
@@ -161,3 +161,4 @@ private fun VpnService.Builder.addRoute(addr: InetNetwork) = addRoute(addr.addre
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 private fun VpnService.Builder.excludeRoute(addr: InetNetwork) = excludeRoute(IpPrefix(addr.address, addr.mask))
+

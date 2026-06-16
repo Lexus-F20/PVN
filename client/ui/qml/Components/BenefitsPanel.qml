@@ -13,7 +13,7 @@ Rectangle {
     visible: benefitsModel && benefitsModel.rowCount() > 0
 
     radius: 16
-    color: AmneziaStyle.color.benefitsPanelBackground
+    color: PvnStyle.color.benefitsPanelBackground
     implicitHeight: inner.implicitHeight + 24
 
     ColumnLayout {
@@ -38,3 +38,4 @@ Rectangle {
         }
     }
 }
+

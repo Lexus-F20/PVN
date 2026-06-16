@@ -71,19 +71,19 @@ qt6_add_resources(QRC ${QRC}
 )
 
 # -- i18n begin
-set(AMNEZIAVPN_TS_FILES
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_ru_RU.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_zh_CN.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_fa_IR.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_ar_EG.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_my_MM.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_uk_UA.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_ur_PK.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/amneziavpn_hi_IN.ts
+set(PVN_TS_FILES
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ru_RU.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_zh_CN.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_fa_IR.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ar_EG.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_my_MM.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_uk_UA.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ur_PK.ts
+    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_hi_IN.ts
 )
 
 qt6_add_translations(${PROJECT}
-    TS_FILES ${AMNEZIAVPN_TS_FILES}
+    TS_FILES ${PVN_TS_FILES}
     RESOURCE_PREFIX "/translations"
 )
 # -- i18n end
@@ -128,8 +128,8 @@ endif()
 
 if(WIN32)
     configure_file(
-        ${CMAKE_CURRENT_LIST_DIR}/platforms/windows/amneziavpn.rc.in
-        ${CMAKE_CURRENT_BINARY_DIR}/amneziavpn.rc
+        ${CMAKE_CURRENT_LIST_DIR}/platforms/windows/PVN.rc.in
+        ${CMAKE_CURRENT_BINARY_DIR}/PVN.rc
     )
 
     set(LIBS ${LIBS}
@@ -217,7 +217,7 @@ install(TARGETS ${PROJECT}
 )
 
 if(APPLE)
-    set(RUNTIME_DEPS_DIR ${CMAKE_INSTALL_BINDIR}/AmneziaVPN.app/Contents/Frameworks)
+    set(RUNTIME_DEPS_DIR ${CMAKE_INSTALL_BINDIR}/PVN.app/Contents/Frameworks)
 else()
     set(RUNTIME_DEPS_DIR ${CMAKE_INSTALL_BINDIR})
 endif()
@@ -278,3 +278,4 @@ if(OVPN_SCRIPTS)
             WORLD_READ WORLD_EXECUTE
     )
 endif()
+

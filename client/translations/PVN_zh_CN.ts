@@ -644,7 +644,7 @@ Already installed containers were found on the server. All installed containers 
     <message>
         <location filename="../ui/notificationhandler.cpp" line="57"/>
         <location filename="../ui/notificationhandler.cpp" line="64"/>
-        <source>AmneziaVPN</source>
+        <source>PVN</source>
         <translation></translation>
     </message>
     <message>
@@ -659,8 +659,8 @@ Already installed containers were found on the server. All installed containers 
     </message>
     <message>
         <location filename="../ui/notificationhandler.cpp" line="88"/>
-        <source>AmneziaVPN notification</source>
-        <translation>AmneziaVPN 提示</translation>
+        <source>PVN notification</source>
+        <translation>PVN 提示</translation>
     </message>
     <message>
         <location filename="../ui/notificationhandler.cpp" line="89"/>
@@ -1798,7 +1798,7 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettings.qml" line="177"/>
-        <source>About AmneziaVPN</source>
+        <source>About PVN</source>
         <translation>关于</translation>
     </message>
     <message>
@@ -2073,7 +2073,7 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     <name>PageSettingsApiNativeConfigs</name>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiNativeConfigs.qml" line="23"/>
-        <source>Save AmneziaVPN config</source>
+        <source>Save PVN config</source>
         <translation type="unfinished">保存配置</translation>
     </message>
     <message>
@@ -2303,7 +2303,7 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApiSubscriptionKey.qml" line="113"/>
-        <source>Save AmneziaVPN config</source>
+        <source>Save PVN config</source>
         <translation type="unfinished">保存配置</translation>
     </message>
     <message>
@@ -2524,8 +2524,8 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="220"/>
-        <source>All settings will be reset to default. All installed AmneziaVPN services will still remain on the server.</source>
-        <translation>所有配置恢复为默认值。服务器已安装的AmneziaVPN服务将被保留。</translation>
+        <source>All settings will be reset to default. All installed PVN services will still remain on the server.</source>
+        <translation>所有配置恢复为默认值。服务器已安装的PVN服务将被保留。</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsApplication.qml" line="221"/>
@@ -2566,8 +2566,8 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="90"/>
-        <source>The backup will contain your passwords and private keys for all servers added to AmneziaVPN. Keep this information in a secure place.</source>
-        <translation>备份将包含您添加到 AmneziaVPN 的所有服务器的密码和私钥。请将这些信息保存在安全的地方。</translation>
+        <source>The backup will contain your passwords and private keys for all servers added to PVN. Keep this information in a secure place.</source>
+        <translation>备份将包含您添加到 PVN 的所有服务器的密码和私钥。请将这些信息保存在安全的地方。</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsBackup.qml" line="104"/>
@@ -2994,7 +2994,7 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="182"/>
-        <source>AmneziaVPN logs</source>
+        <source>PVN logs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3014,7 +3014,7 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsLogging.qml" line="211"/>
-        <source>AmneziaVPN-service logs</source>
+        <source>PVN-service logs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3157,8 +3157,8 @@ And if you don&apos;t like the app, all the more support it - the donation will 
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="160"/>
-        <source>All installed AmneziaVPN services will still remain on the server.</source>
-        <translation>所有已安装的 AmneziaVPN 服务仍将保留在服务器上。</translation>
+        <source>All installed PVN services will still remain on the server.</source>
+        <translation>所有已安装的 PVN 服务仍将保留在服务器上。</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsServerData.qml" line="185"/>
@@ -3608,7 +3608,7 @@ It&apos;s okay as long as it&apos;s from someone you trust.</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="295"/>
-        <source>Configure Amnezia VPN on your own server</source>
+        <source>Configure PVN on your own server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4029,8 +4029,8 @@ and will not be shared or disclosed to the Amnezia or any third parties</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="120"/>
-        <source>For the AmneziaVPN app</source>
-        <translation>AmneziaVPN 应用</translation>
+        <source>For the PVN app</source>
+        <translation>PVN 应用</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="125"/>
@@ -4240,7 +4240,7 @@ and will not be shared or disclosed to the Amnezia or any third parties</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShare.qml" line="50"/>
-        <source>Save AmneziaVPN config</source>
+        <source>Save PVN config</source>
         <translation type="unfinished">保存配置</translation>
     </message>
     <message>
@@ -4275,7 +4275,7 @@ and will not be shared or disclosed to the Amnezia or any third parties</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageShareConnection.qml" line="30"/>
-        <source>Save AmneziaVPN config</source>
+        <source>Save PVN config</source>
         <translation type="unfinished">保存配置</translation>
     </message>
     <message>
@@ -5079,7 +5079,7 @@ and will not be shared or disclosed to the Amnezia or any third parties</source>
         <source>OpenVPN is one of the most popular and reliable VPN protocols. It uses SSL/TLS encryption, supports a wide variety of devices and operating systems, and is continuously improved by the community due to its open-source nature. It provides a good balance between speed and security but is easily recognized by DPI systems, making it susceptible to blocking.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Normal battery consumption on mobile devices
 * Flexible customization for various devices and OS
 * Operates over both TCP and UDP protocols</source>
@@ -5090,7 +5090,7 @@ Features:
         <source>Shadowsocks is based on the SOCKS5 protocol and encrypts connections using AEAD cipher. Although designed to be discreet, it doesn&apos;t mimic a standard HTTPS connection and can be detected by some DPI systems. Due to limited support in Amnezia, we recommend using the AmneziaWG protocol.
 
 Features:
-* Available in AmneziaVPN only on desktop platforms
+* Available in PVN only on desktop platforms
 * Customizable encryption protocol
 * Detectable by some DPI systems
 * Operates over TCP protocol
@@ -5108,7 +5108,7 @@ The Cloak plugin further protects the connection from DPI detection. It modifies
 In regions with heavy internet censorship, we strongly recommend using OpenVPN with Cloak from your first connection.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * High power consumption on mobile devices
 * Flexible configuration options
 * Undetectable by DPI systems
@@ -5120,7 +5120,7 @@ Features:
         <source>WireGuard is a modern, streamlined VPN protocol offering stable connectivity and excellent performance across all devices. It uses fixed encryption settings, delivering lower latency and higher data transfer speeds compared to OpenVPN. However, WireGuard is easily identifiable by DPI systems due to its distinctive packet signatures, making it susceptible to blocking.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Low power consumption on mobile devices
 * Minimal configuration required
 * Easily detected by DPI systems (susceptible to blocking)
@@ -5134,7 +5134,7 @@ Features:
 AmneziaWG is an excellent choice for those seeking a fast, stealthy VPN connection.
 
 Features:
-* Available on all AmneziaVPN platforms
+* Available on all PVN platforms
 * Low battery consumption on mobile devices
 * Minimal settings required
 * Undetectable by traffic analysis systems (DPI)
@@ -5159,7 +5159,7 @@ Features:
         <source>IKEv2, combined with IPSec encryption, is a modern and reliable VPN protocol. It reconnects quickly when switching networks or devices, making it ideal for dynamic network environments. While it provides good security and speed, it&apos;s easily recognized by DPI systems and susceptible to blocking.
 
 Features:
-* Available in AmneziaVPN only on Windows
+* Available in PVN only on Windows
 * Low battery consumption on mobile devices
 * Minimal configuration required
 * Detectable by DPI analysis systems(easily blocked)
@@ -5199,7 +5199,7 @@ For more detailed information, you can
 WireGuard provides stable VPN connection and high performance on all devices. It uses hard-coded encryption settings. WireGuard compared to OpenVPN has lower latency and better data transfer throughput.
 WireGuard is very susceptible to blocking due to its distinct packet signatures. Unlike some other VPN protocols that employ obfuscation techniques, the consistent signature patterns of WireGuard packets can be more easily identified and thus blocked by advanced Deep Packet Inspection (DPI) systems and other network monitoring tools.
 
-* Available in the AmneziaVPN across all platforms
+* Available in the PVN across all platforms
 * Low power consumption
 * Minimum number of settings
 * Easily recognised by DPI analysis systems, susceptible to blocking
@@ -5208,7 +5208,7 @@ WireGuard is very susceptible to blocking due to its distinct packet signatures.
 WireGuard提供稳定的VPN连接，并在所有设备上具有高性能。它使用硬编码的加密设置。与OpenVPN相比，WireGuard具有较低的延迟和更好的数据传输吞吐量。
 WireGuard非常容易被阻挡，因为其独特的数据包签名。与一些其他VPN协议不同，这些协议使用混淆技术，WireGuard数据包的一致签名模式更容易被高级深度数据包检测（DPI）系统和其他网络监控工具识别和阻挡。
 
-    在AmneziaVPN上适用于所有平台
+    在PVN上适用于所有平台
     低功耗
     最少的设置
     易于被DPI分析系统识别，容易被阻挡
@@ -5252,7 +5252,7 @@ WireGuard非常容易被阻挡，因为其独特的数据包签名。与一些�
         <source>OpenVPN stands as one of the most popular and time-tested VPN protocols available.
 It employs its unique security protocol, leveraging the strength of SSL/TLS for encryption and key exchange. Furthermore, OpenVPN&apos;s support for a multitude of authentication methods makes it versatile and adaptable, catering to a wide range of devices and operating systems. Due to its open-source nature, OpenVPN benefits from extensive scrutiny by the global community, which continually reinforces its security. With a strong balance of performance, security, and compatibility, OpenVPN remains a top choice for privacy-conscious individuals and businesses alike.
 
-* Available in the AmneziaVPN across all platforms
+* Available in the PVN across all platforms
 * Normal power consumption on mobile devices
 * Flexible customisation to suit user needs to work with different operating systems and devices
 * Recognised by DPI analysis systems and therefore susceptible to blocking
@@ -5260,7 +5260,7 @@ It employs its unique security protocol, leveraging the strength of SSL/TLS for 
         <translation type="vanished">OpenVPN 是最流行且经过时间考验的 VPN 协议之一。
 它采用其独特的安全协议，利用 SSL/TLS 的优势进行加密和密钥交换。此外，OpenVPN 支持多种身份验证方法，使其具有多功能性和适应性，可适应各种设备和操作系统。由于其开源性质，OpenVPN 受益于全球社区的广泛审查，这不断增强了其安全性。凭借性能、安全性和兼容性的强大平衡，OpenVPN 仍然是注重隐私的个人和企业的首选。
 
-* 可在所有平台的 AmneziaVPN 中使用
+* 可在所有平台的 PVN 中使用
 * 移动设备的正常功耗
 * 灵活定制，满足用户使用不同操作系统和设备的需求
 * 被DPI分析系统识别，因此容易被阻塞
@@ -5269,13 +5269,13 @@ It employs its unique security protocol, leveraging the strength of SSL/TLS for 
     <message>
         <source>Shadowsocks, inspired by the SOCKS5 protocol, safeguards the connection using the AEAD cipher. Although Shadowsocks is designed to be discreet and challenging to identify, it isn&apos;t identical to a standard HTTPS connection.However, certain traffic analysis systems might still detect a Shadowsocks connection. Due to limited support in Amnezia, it&apos;s recommended to use AmneziaWG protocol.
 
-* Available in the AmneziaVPN only on desktop platforms
+* Available in the PVN only on desktop platforms
 * Configurable encryption protocol
 * Detectable by some DPI systems
 * Works over TCP network protocol.</source>
         <translation type="vanished">Shadowsocks 受到 SOCKS5 协议的启发，使用 AEAD 密码保护连接。尽管 Shadowsocks 设计得谨慎且难以识别，但它与标准 HTTPS 连接并不相同。但是，某些流量分析系统可能仍会检测到 Shadowsocks 连接。由于Amnezia支持有限，建议使用AmneziaWG协议。
 
-* 仅在桌面平台上的 AmneziaVPN 中可用
+* 仅在桌面平台上的 PVN 中可用
 * 可配置的加密协议
 * 可以被某些 DPI 系统检测到
 * 通过 TCP 网络协议工作。</translation>
@@ -5293,7 +5293,7 @@ Immediately after receiving the first data packet, Cloak authenticates the incom
 
 If there is a extreme level of Internet censorship in your region, we advise you to use only OpenVPN over Cloak from the first connection
 
-* Available in the AmneziaVPN across all platforms
+* Available in the PVN across all platforms
 * High power consumption on mobile devices
 * Flexible settings
 * Not recognised by DPI analysis systems
@@ -5311,7 +5311,7 @@ Cloak 可以修改数据包元数据，以便将 VPN 流量完全屏蔽为正常
 
 如果您所在地区的互联网审查非常严格，我们建议您在第一次连接时仅使用 OpenVPN over Cloak
 
-* 可在所有平台的 AmneziaVPN 中使用
+* 可在所有平台的 PVN 中使用
 * 移动设备功耗高
 * 配置灵活
 * 不被 DPI 分析系统识别
@@ -5322,7 +5322,7 @@ Cloak 可以修改数据包元数据，以便将 VPN 流量完全屏蔽为正常
 Provides stable VPN connection, high performance on all devices. Uses hard-coded encryption settings. WireGuard compared to OpenVPN has lower latency and better data transfer throughput.
 WireGuard is very susceptible to blocking due to its distinct packet signatures. Unlike some other VPN protocols that employ obfuscation techniques, the consistent signature patterns of WireGuard packets can be more easily identified and thus blocked by advanced Deep Packet Inspection (DPI) systems and other network monitoring tools.
 
-* Available in the AmneziaVPN across all platforms
+* Available in the PVN across all platforms
 * Low power consumption
 * Minimum number of settings
 * Easily recognised by DPI analysis systems, susceptible to blocking
@@ -5331,7 +5331,7 @@ WireGuard is very susceptible to blocking due to its distinct packet signatures.
 在所有设备上提供稳定的 VPN 连接和高性能。使用硬编码的加密设置。 WireGuard 与 OpenVPN 相比具有更低的延迟和更好的数据传输吞吐量。
 由于其独特的数据包签名，WireGuard 非常容易受到阻塞。与其他一些采用混淆技术的 VPN 协议不同，WireGuard 数据包的一致签名模式可以更容易地被高级深度数据包检测 (DPI) 系统和其他网络监控工具识别并阻止。
 
-* 可在所有平台的 AmneziaVPN 中使用
+* 可在所有平台的 PVN 中使用
 * 低功耗
 * 配置简单
 * 容易被DPI分析系统识别，容易被阻塞
@@ -5342,7 +5342,7 @@ WireGuard is very susceptible to blocking due to its distinct packet signatures.
 While WireGuard is known for its efficiency, it had issues with being easily detected due to its distinct packet signatures. AmneziaWG solves this problem by using better obfuscation methods, making its traffic blend in with regular internet traffic.
 This means that AmneziaWG keeps the fast performance of the original while adding an extra layer of stealth, making it a great choice for those wanting a fast and discreet VPN connection.
 
-* Available in the AmneziaVPN across all platforms
+* Available in the PVN across all platforms
 * Low power consumption
 * Minimum number of settings
 * Not recognised by DPI analysis systems, resistant to blocking
@@ -5351,7 +5351,7 @@ This means that AmneziaWG keeps the fast performance of the original while addin
 虽然 WireGuard 以其高效而闻名，但由于其独特的数据包签名，它存在容易被检测到的问题。 AmneziaWG 通过使用更好的混淆方法解决了这个问题，使其流量与常规互联网流量融合在一起。
 这意味着 AmneziaWG 保留了原始版本的快速性能，同时添加了额外的隐秘层，使其成为那些想要快速且谨慎的 VPN 连接的人的绝佳选择。
 
-* 可在所有平台的 AmneziaVPN 中使用
+* 可在所有平台的 PVN 中使用
 * 低功耗
 * 配置简单
 * 不被DPI分析系统识别，抗阻塞
@@ -5362,7 +5362,7 @@ This means that AmneziaWG keeps the fast performance of the original while addin
 One of its distinguishing features is its ability to swiftly switch between networks and devices, making it particularly adaptive in dynamic network environments. 
 While it offers a blend of security, stability, and speed, it&apos;s essential to note that IKEv2 can be easily detected and is susceptible to blocking.
 
-* Available in the AmneziaVPN only on Windows
+* Available in the PVN only on Windows
 * Low power consumption, on mobile devices
 * Minimal configuration
 * Recognised by DPI analysis systems
@@ -5371,7 +5371,7 @@ While it offers a blend of security, stability, and speed, it&apos;s essential t
 其显着特征之一是能够在网络和设备之间快速切换，使其特别适应动态网络环境。
 虽然 IKEv2 兼具安全性、稳定性和速度，但必须注意的是，IKEv2 很容易被检测到，并且容易受到阻止。
 
-* 仅在 Windows 上的 AmneziaVPN 中可用
+* 仅在 Windows 上的 PVN 中可用
 * 低功耗，在移动设备上
 * 最低配置
 * 获得DPI分析系统认可
@@ -5662,7 +5662,7 @@ While it offers a blend of security, stability, and speed, it&apos;s essential t
 <context>
     <name>ShareConnectionDrawer</name>
     <message>
-        <source>Save AmneziaVPN config</source>
+        <source>Save PVN config</source>
         <translation type="vanished">保存配置</translation>
     </message>
     <message>
@@ -5936,3 +5936,4 @@ While it offers a blend of security, stability, and speed, it&apos;s essential t
     </message>
 </context>
 </TS>
+

@@ -61,7 +61,7 @@ PageType {
         anchors.rightMargin: 16
         anchors.bottomMargin: 34
 
-        color: AmneziaStyle.color.transparent
+        color: PvnStyle.color.transparent
         //radius: 16
 
         QRCodeReader {
@@ -84,3 +84,4 @@ PageType {
         }
     }
 }
+

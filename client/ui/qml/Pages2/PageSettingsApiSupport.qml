@@ -113,7 +113,7 @@ PageType {
                 descriptionOnTop: true
 
                 rightImageSource: "qrc:/images/controls/copy.svg"
-                rightImageColor: AmneziaStyle.color.paleGray
+                rightImageColor: PvnStyle.color.paleGray
 
                 clickedFunction: function() {
                     GC.copyToClipBoard(descriptionText)
@@ -126,3 +126,4 @@ PageType {
         }
     }
 }
+

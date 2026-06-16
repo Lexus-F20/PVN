@@ -75,11 +75,11 @@ DrawerType2 {
             Layout.rightMargin: 16
             Layout.leftMargin: 16
 
-            defaultColor: AmneziaStyle.color.transparent
-            hoveredColor: AmneziaStyle.color.translucentWhite
-            pressedColor: AmneziaStyle.color.sheerWhite
-            disabledColor: AmneziaStyle.color.mutedGray
-            textColor: AmneziaStyle.color.paleGray
+            defaultColor: PvnStyle.color.transparent
+            hoveredColor: PvnStyle.color.translucentWhite
+            pressedColor: PvnStyle.color.sheerWhite
+            disabledColor: PvnStyle.color.mutedGray
+            textColor: PvnStyle.color.paleGray
             borderWidth: 1
 
             visible: root.noButtonText !== ""
@@ -94,3 +94,4 @@ DrawerType2 {
         }
     }
 }
+

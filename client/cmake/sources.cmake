@@ -256,7 +256,7 @@ if(WIN32)
     )
 
     set(RESOURCES ${RESOURCES}
-        ${CMAKE_CURRENT_BINARY_DIR}/amneziavpn.rc
+        ${CMAKE_CURRENT_BINARY_DIR}/PVN.rc
     )
 endif()
 
@@ -295,3 +295,4 @@ if(APPLE AND MACOS_NE)
         ${CLIENT_ROOT_DIR}/ui/utils/systemTrayNotificationHandler.cpp
     )
 endif()
+

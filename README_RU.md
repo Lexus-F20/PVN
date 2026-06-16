@@ -1,4 +1,4 @@
-# Amnezia VPN
+# PVN
 
 ### _Лучший клиент для создания VPN на собственном сервере_
 
@@ -6,7 +6,7 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/amnezia-vpn/amnezia-client)
 
 ### [English](https://github.com/amnezia-vpn/amnezia-client/blob/dev/README.md) | Русский
-[AmneziaVPN](https://amnezia.org?utm_source=github&utm_campaign=amnezia_website-readme-ru) — это open source VPN-клиент, ключевая особенность которого заключается в возможности развернуть собственный VPN на вашем сервере.
+[PVN](https://amnezia.org?utm_source=github&utm_campaign=amnezia_website-readme-ru) — это open source VPN-клиент, ключевая особенность которого заключается в возможности развернуть собственный VPN на вашем сервере.
 
 [![Image](https://github.com/amnezia-vpn/amnezia-client/blob/dev/metadata/img-readme/uipic4.png)](https://amnezia.org)
 
@@ -37,7 +37,7 @@
 
 - [https://amnezia.org](https://amnezia.org) - Веб-сайт проекта | [Альтернативная ссылка (зеркало)](https://storage.googleapis.com/kldscp/amnezia.org)
 - [https://docs.amnezia.org](https://docs.amnezia.org) - Документация
-- [https://www.reddit.com/r/AmneziaVPN](https://www.reddit.com/r/AmneziaVPN) - Reddit  
+- [https://www.reddit.com/r/PVN](https://www.reddit.com/r/PVN) - Reddit  
 - [https://t.me/amnezia_vpn_en](https://t.me/amnezia_vpn_en) - Канал поддержки в Telegram (Английский)
 - [https://t.me/amnezia_vpn_ir](https://t.me/amnezia_vpn_ir) - Канал поддержки в Telegram (Фарси)
 - [https://t.me/amnezia_vpn_mm](https://t.me/amnezia_vpn_mm) - Канал поддержки в Telegram (Мьянма) 
@@ -46,7 +46,7 @@
 
 ## Технологии
 
-AmneziaVPN использует несколько проектов с открытым исходным кодом:
+PVN использует несколько проектов с открытым исходным кодом:
 
 - [OpenSSL](https://www.openssl.org/)
 - [OpenVPN](https://openvpn.net/)
@@ -61,7 +61,7 @@ AmneziaVPN использует несколько проектов с откр�
 
 Загрузите самые актуальные файлы перевода.
 
-Перейдите на [вкладку "Actions"](https://github.com/amnezia-vpn/amnezia-client/actions?query=is%3Asuccess+branch%3Adev), нажмите на первую строку. Затем прокрутите вниз до раздела "Artifacts" и скачайте "AmneziaVPN_translations".
+Перейдите на [вкладку "Actions"](https://github.com/amnezia-vpn/amnezia-client/actions?query=is%3Asuccess+branch%3Adev), нажмите на первую строку. Затем прокрутите вниз до раздела "Artifacts" и скачайте "PVN_translations".
 
 Распакуйте этот файл. Каждый файл с расширением *.ts содержит строки для соответствующего языка.
 
@@ -149,7 +149,7 @@ deploy/build.bat --installer all
   - `Visual Studio Code` with `Qt Extension Pack`
   - и так далее
 
-* Для использования `Xcode` нужно сконфигурировать проект с помощью `cmake`. Самый простой способ это сделать - использовать `Qt Creator` для конфигурации. Затем, нужно открыть файл `AmneziaVPN.xcodeproj` из папки сборки с помощью `Xcode`. Учтите, что никакие файлы фактически не сохраняются - они сохраняются в директории сборки. Если требуется, скопируйте файлы вручную
+* Для использования `Xcode` нужно сконфигурировать проект с помощью `cmake`. Самый простой способ это сделать - использовать `Qt Creator` для конфигурации. Затем, нужно открыть файл `PVN.xcodeproj` из папки сборки с помощью `Xcode`. Учтите, что никакие файлы фактически не сохраняются - они сохраняются в директории сборки. Если требуется, скопируйте файлы вручную
 
 * `Android studio` может быть использована подобным вышеуказанному способу - нужно использовать `cmake` вручную или через `Qt Creator` для конфигурации. Далее, откройте `<build-dir>/client/android-build` в `Android studio`. Не забудьте скопировать изменённые файлы в папку с исходным кодом - все файлы, изменённые в IDE, сохраняются фактически в папке сборки.
 
@@ -166,7 +166,7 @@ GPL v3.0
 
 ## Донаты
 
-Patreon: [https://www.patreon.com/amneziavpn](https://www.patreon.com/amneziavpn)
+Patreon: [https://www.patreon.com/PVN](https://www.patreon.com/PVN)
 
 Bitcoin: bc1qmhtgcf9637rl3kqyy22r2a8wa8laka4t9rx2mf <br>
 USDT BEP20: 0x6abD576765a826f87D1D95183438f9408C901bE4 <br>
@@ -178,3 +178,4 @@ TON: UQDpU1CyKRmg7L8mNScKk9FRc2SlESuI7N-Hby4nX-CcVmns
 
 Этот проект тестируется с помощью BrowserStack.
 Мы выражаем благодарность [BrowserStack](https://www.browserstack.com) за поддержку нашего проекта.
+

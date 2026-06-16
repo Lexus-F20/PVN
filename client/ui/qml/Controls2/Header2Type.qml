@@ -39,7 +39,7 @@ Item {
                 implicitHeight: 40
 
                 image: root.actionButtonImage
-                imageColor: AmneziaStyle.color.paleGray
+                imageColor: PvnStyle.color.paleGray
 
                 visible: image ? true : false
 
@@ -59,7 +59,7 @@ Item {
 
             text: root.descriptionText
 
-            color: AmneziaStyle.color.mutedGray
+            color: PvnStyle.color.mutedGray
 
             visible: root.descriptionText !== ""
         }
@@ -77,3 +77,4 @@ Item {
         }
     }
 }
+

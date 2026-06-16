@@ -6,7 +6,7 @@
 
 #include "../client/core/utils/utilities.h"
 
-#define IPC_SERVICE_URL "local:AmneziaVpnIpcInterface"
+#define IPC_SERVICE_URL "local:PVNIpcInterface"
 
 namespace amnezia {
 
@@ -100,3 +100,4 @@ inline QStringList sanitizeArguments(PermittedProcess proc, const QStringList &a
 } // namespace amnezia
 
 #endif // IPC_H
+

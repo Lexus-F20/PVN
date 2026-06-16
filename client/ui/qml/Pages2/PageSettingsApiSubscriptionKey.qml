@@ -80,7 +80,7 @@ PageType {
                 text: qsTr(root.processedServer.name + "\nsubscription key")
                 font.pixelSize: 32
                 font.bold: true
-                color: AmneziaStyle.color.paleGray
+                color: PvnStyle.color.paleGray
                 wrapMode: Text.Wrap
             }
 
@@ -106,9 +106,9 @@ PageType {
                 Layout.rightMargin: 16
 
                 defaultColor: "transparent"
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                textColor: AmneziaStyle.color.paleGray
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                textColor: PvnStyle.color.paleGray
                 borderWidth: 1
 
                 text: qsTr("Save key as a file")
@@ -142,9 +142,9 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
                 defaultColor: "transparent"
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                textColor: AmneziaStyle.color.paleGray
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                textColor: PvnStyle.color.paleGray
                 borderWidth: 1
 
                 text: qsTr("Show key text")
@@ -224,17 +224,18 @@ PageType {
                     Layout.fillWidth: true
                     Layout.topMargin: 16
                     readOnly: true
-                    color: AmneziaStyle.color.paleGray
-                    selectionColor: AmneziaStyle.color.richBrown
-                    selectedTextColor: AmneziaStyle.color.paleGray
+                    color: PvnStyle.color.paleGray
+                    selectionColor: PvnStyle.color.richBrown
+                    selectedTextColor: PvnStyle.color.paleGray
                     font.pixelSize: 16
                     font.weight: Font.Medium
                     font.family: "PT Root UI VF"
                     text: SubscriptionUiController.vpnKey
                     wrapMode: Text.Wrap
-                    background: Rectangle { color: AmneziaStyle.color.transparent }
+                    background: Rectangle { color: PvnStyle.color.transparent }
                 }
             }
         }
     }
 }
+

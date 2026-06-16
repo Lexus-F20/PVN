@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// Copyright (c) 2024 AmneziaVPN
-// This file has been modified for AmneziaVPN
+// Copyright (c) 2024 PVN
+// This file has been modified for PVN
 //
 // This file is based on the work of the Qv2ray VPN client.
 // The original code of the Qv2ray, A Qt frontend for V2Ray. Written in C++ and licensed under GPL3.
@@ -313,4 +313,5 @@ const QString Serialize(const VlessServerObject &server, const QString &alias)
     return url.toString(QUrl::ComponentFormattingOption::FullyEncoded);
 }
 }
+
 

@@ -14,18 +14,18 @@ Popup {
     visible: false
 
     Overlay.modal: Rectangle {
-        color: AmneziaStyle.color.translucentMidnightBlack
+        color: PvnStyle.color.translucentMidnightBlack
     }
 
     background: Rectangle {
-        color: AmneziaStyle.color.transparent
+        color: PvnStyle.color.transparent
     }
 
     ImageButtonType {
         id: button
 
         image: "qrc:/images/controls/close.svg"
-        imageColor: AmneziaStyle.color.paleGray
+        imageColor: PvnStyle.color.paleGray
 
         implicitWidth: 40
         implicitHeight: 40
@@ -35,3 +35,4 @@ Popup {
         }
     }
 }
+

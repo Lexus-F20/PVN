@@ -16,7 +16,7 @@ Rectangle {
     implicitWidth: transportProtoButtonGroup.implicitWidth
     implicitHeight: transportProtoButtonGroup.implicitHeight
 
-    color: AmneziaStyle.color.onyxBlack
+    color: PvnStyle.color.onyxBlack
     radius: 16
 
     onFocusChanged: {
@@ -59,3 +59,4 @@ Rectangle {
         }
     }
 }
+

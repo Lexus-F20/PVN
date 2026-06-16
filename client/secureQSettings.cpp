@@ -18,7 +18,7 @@ using namespace QKeychain;
 namespace {
     constexpr const char *settingsKeyTag = "settingsKeyTag";
     constexpr const char *settingsIvTag = "settingsIvTag";
-    constexpr const char *keyChainName = "AmneziaVPN-Keychain";
+    constexpr const char *keyChainName = "PVN-Keychain";
 }
 
 SecureQSettings::SecureQSettings(const QString &organization, const QString &application, QObject *parent, bool enableEncryption)
@@ -305,3 +305,4 @@ void SecureQSettings::setSecTag(const QString &tag, const QByteArray &data)
         qCritical() << "SecureQSettings::setSecTag Error:" << job->errorString();
     }
 }
+

@@ -30,7 +30,7 @@ class WireguardUtilsWindows final : public WireguardUtils {
   QString interfaceName() override {
     return WireguardUtilsWindows::s_interfaceName();
   }
-  static const QString s_interfaceName() { return "AmneziaVPN"; }
+  static const QString s_interfaceName() { return "PVN"; }
   bool addInterface(const InterfaceConfig& config) override;
   bool deleteInterface() override;
 
@@ -60,3 +60,4 @@ class WireguardUtilsWindows final : public WireguardUtils {
 };
 
 #endif  // WIREGUARDUTILSWINDOWS_H
+

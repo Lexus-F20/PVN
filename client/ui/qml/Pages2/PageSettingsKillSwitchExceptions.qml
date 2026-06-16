@@ -99,7 +99,7 @@ PageType {
 
                 text: ip
                 rightImageSource: "qrc:/images/controls/trash.svg"
-                rightImageColor: AmneziaStyle.color.paleGray
+                rightImageColor: PvnStyle.color.paleGray
 
                 clickedFunction: function() {
                     var headerText = qsTr("Delete ") + ip + "?"
@@ -299,3 +299,4 @@ PageType {
         }
     }
 }
+

@@ -8,7 +8,7 @@
 #include "core/models/serverDescription.h"
 
 #if defined(Q_OS_IOS) || defined(MACOS_NE)
-    #include <AmneziaVPN-Swift.h>
+    #include <PVN-Swift.h>
 #endif
 
 
@@ -416,3 +416,4 @@ bool ServersController::isLegacyApiV1Server(const QString &serverId) const
     return !serverId.isEmpty()
             && serverConfigUtils::isLegacyApiSubscription(m_serversRepository->serverKind(serverId));
 }
+

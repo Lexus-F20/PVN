@@ -31,7 +31,7 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
 	<key>UILaunchStoryboardName</key>
-	<string>AmneziaVPNLaunchScreen</string>
+	<string>PVNLaunchScreen</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -200,3 +200,4 @@
         </array>
 </dict>
 </plist>
+

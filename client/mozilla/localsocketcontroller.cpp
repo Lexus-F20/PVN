@@ -103,11 +103,11 @@ void LocalSocketController::initializeInternal() {
   m_daemonState = eInitializing;
 
 #ifdef MZ_WINDOWS
-  QString path = "\\\\.\\pipe\\amneziavpn";
+  QString path = "\\\\.\\pipe\\PVN";
 #else
-  QString path = "/var/run/amneziavpn/daemon.socket";
+  QString path = "/var/run/PVN/daemon.socket";
   if (!QFileInfo::exists(path)) {
-    path = "/tmp/amneziavpn.socket";
+    path = "/tmp/PVN.socket";
   }
 #endif
 
@@ -552,3 +552,4 @@ void LocalSocketController::write(const QJsonObject& json) {
   m_socket->write("\n");
   m_socket->flush();
 }
+

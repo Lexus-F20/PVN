@@ -72,7 +72,7 @@ PageType {
                 text: countryName
                 descriptionText: isWorkerExpired ? qsTr("The configuration needs to be reissued") : ""
                 hideDescription: isWorkerExpired ? false : true
-                descriptionColor: AmneziaStyle.color.vibrantRed
+                descriptionColor: PvnStyle.color.vibrantRed
 
                 leftImageSource: "qrc:/countriesFlags/images/flagKit/" + countryImageCode + ".svg"
                 rightImageSource: isIssued ? "qrc:/images/controls/more-vertical.svg" : "qrc:/images/controls/download.svg"
@@ -238,3 +238,4 @@ PageType {
         showQuestionDrawer(headerText, descriptionText, yesButtonText, noButtonText, yesButtonFunction, noButtonFunction)
     }
 }
+

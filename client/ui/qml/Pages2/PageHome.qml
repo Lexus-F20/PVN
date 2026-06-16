@@ -73,11 +73,11 @@ PageType {
 
                 implicitHeight: 36
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.mutedGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.mutedGray
                 borderWidth: 0
 
                 visible: isLoggingEnabled ? true : false
@@ -101,11 +101,11 @@ PageType {
 
                 implicitHeight: 36
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.mutedGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.mutedGray
                 borderWidth: 0
 
                 visible: SettingsController.isDevModeEnabled && isDevGatewayEnabled
@@ -142,12 +142,12 @@ PageType {
                     spacing: 4
                     Text {
                         text: "↓"
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.pixelSize: 14
                     }
                     Text {
                         text: ConnectionController.downloadSpeed
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.family: "Inter"
                         font.pixelSize: 14
                         font.weight: Font.Medium
@@ -158,12 +158,12 @@ PageType {
                     spacing: 4
                     Text {
                         text: "↑"
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.pixelSize: 14
                     }
                     Text {
                         text: ConnectionController.uploadSpeed
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.family: "Inter"
                         font.pixelSize: 14
                         font.weight: Font.Medium
@@ -174,14 +174,14 @@ PageType {
                     spacing: 4
                     Text {
                         text: "↺"
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.pixelSize: 14
                     }
                     Text {
                         text: ConnectionController.pingMs >= 0
                               ? ConnectionController.pingMs + " ms"
                               : "— ms"
-                        color: AmneziaStyle.color.paleGray
+                        color: PvnStyle.color.paleGray
                         font.family: "Inter"
                         font.pixelSize: 14
                         font.weight: Font.Medium
@@ -199,11 +199,11 @@ PageType {
 
                 implicitHeight: 36
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.mutedGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.mutedGray
                 borderWidth: 0
 
                 buttonTextLabel.lineHeight: 20
@@ -349,7 +349,7 @@ PageType {
 
                         hoverEnabled: false
                         image: "qrc:/images/controls/chevron-down.svg"
-                        imageColor: AmneziaStyle.color.paleGray
+                        imageColor: PvnStyle.color.paleGray
 
                         icon.width: 18
                         icon.height: 18
@@ -385,11 +385,11 @@ PageType {
                         leftPadding: 16
                         rightPadding: 16
 
-                        defaultColor: AmneziaStyle.color.transparent
-                        hoveredColor: AmneziaStyle.color.translucentWhite
-                        pressedColor: AmneziaStyle.color.sheerWhite
-                        disabledColor: AmneziaStyle.color.transparent
-                        textColor: AmneziaStyle.color.mutedGray
+                        defaultColor: PvnStyle.color.transparent
+                        hoveredColor: PvnStyle.color.translucentWhite
+                        pressedColor: PvnStyle.color.sheerWhite
+                        disabledColor: PvnStyle.color.transparent
+                        textColor: PvnStyle.color.mutedGray
 
                         buttonTextLabel.lineHeight: 16
                         buttonTextLabel.font.pixelSize: 13
@@ -449,19 +449,19 @@ PageType {
 
                         Component.onCompleted: root.containersDropDownRef = containersDropDown
 
-                        rootButtonImageColor: AmneziaStyle.color.midnightBlack
-                        rootButtonBackgroundColor: AmneziaStyle.color.paleGray
-                        rootButtonBackgroundHoveredColor: AmneziaStyle.color.mistyGray
-                        rootButtonBackgroundPressedColor: AmneziaStyle.color.cloudyGray
-                        rootButtonHoveredBorderColor: AmneziaStyle.color.transparent
-                        rootButtonDefaultBorderColor: AmneziaStyle.color.transparent
+                        rootButtonImageColor: PvnStyle.color.midnightBlack
+                        rootButtonBackgroundColor: PvnStyle.color.paleGray
+                        rootButtonBackgroundHoveredColor: PvnStyle.color.mistyGray
+                        rootButtonBackgroundPressedColor: PvnStyle.color.cloudyGray
+                        rootButtonHoveredBorderColor: PvnStyle.color.transparent
+                        rootButtonDefaultBorderColor: PvnStyle.color.transparent
                         rootButtonTextTopMargin: 8
                         rootButtonTextBottomMargin: 8
 
                         enabled: drawer.isOpened
 
                         text: ServersUiController.defaultServerDefaultContainerName
-                        textColor: AmneziaStyle.color.midnightBlack
+                        textColor: PvnStyle.color.midnightBlack
                         headerText: qsTr("VPN protocol")
                         headerBackButtonImage: "qrc:/images/controls/arrow-left.svg"
 
@@ -542,3 +542,4 @@ PageType {
         }
     }
 }
+

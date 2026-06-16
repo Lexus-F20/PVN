@@ -60,7 +60,7 @@ PageType {
         anchors.rightMargin: 16
 
         text: pageShareConnection.headerText
-        color: AmneziaStyle.color.paleGray
+        color: PvnStyle.color.paleGray
         font.pixelSize: 32
         font.weight: 700
         font.family: "PT Root UI VF"
@@ -120,11 +120,11 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.paleGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.paleGray
                 borderWidth: 1
 
                 text: pageShareConnection.copyButtonText
@@ -141,11 +141,11 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
                 visible: false
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.paleGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.paleGray
                 borderWidth: 1
                 text: qsTr("Copy config string")
                 leftImageSource: "qrc:/images/controls/copy.svg"
@@ -159,11 +159,11 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
                 visible: pageShareConnection.isSelfHostedConfig
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.paleGray
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.paleGray
                 borderWidth: 1
                 text: qsTr("Show connection settings")
                 clickedFunc: function() {
@@ -247,15 +247,15 @@ PageType {
                                 height: 24
                                 readOnly: true
                                 activeFocusOnTab: false
-                                color: AmneziaStyle.color.paleGray
-                                selectionColor:  AmneziaStyle.color.richBrown
-                                selectedTextColor: AmneziaStyle.color.paleGray
+                                color: PvnStyle.color.paleGray
+                                selectionColor:  PvnStyle.color.richBrown
+                                selectedTextColor: PvnStyle.color.paleGray
                                 font.pixelSize: 16
                                 font.weight: Font.Medium
                                 font.family: "PT Root UI VF"
                                 text: ExportController.config
                                 wrapMode: Text.Wrap
-                                background: Rectangle { color: AmneziaStyle.color.transparent }
+                                background: Rectangle { color: PvnStyle.color.transparent }
                             }
                         }
                     }
@@ -325,3 +325,4 @@ PageType {
         }
     }
 }
+

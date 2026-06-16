@@ -9,19 +9,19 @@ import "TextTypes"
 RadioButton {
     id: root
 
-    property string hoveredColor: AmneziaStyle.color.barelyTranslucentWhite
-    property string defaultColor: AmneziaStyle.color.transparent
-    property string checkedColor: AmneziaStyle.color.transparent
-    property string disabledColor: AmneziaStyle.color.transparent
+    property string hoveredColor: PvnStyle.color.barelyTranslucentWhite
+    property string defaultColor: PvnStyle.color.transparent
+    property string checkedColor: PvnStyle.color.transparent
+    property string disabledColor: PvnStyle.color.transparent
 
-    property string textColor: AmneziaStyle.color.paleGray
-    property string textDisabledColor: AmneziaStyle.color.mutedGray
+    property string textColor: PvnStyle.color.paleGray
+    property string textDisabledColor: PvnStyle.color.mutedGray
 
-    property string pressedBorderColor: AmneziaStyle.color.charcoalGray
-    property string checkedBorderColor: AmneziaStyle.color.goldenApricot
-    property string defaultBodredColor: AmneziaStyle.color.transparent
-    property string checkedDisabledBorderColor: AmneziaStyle.color.mutedBrown
-    property string borderFocusedColor: AmneziaStyle.color.paleGray
+    property string pressedBorderColor: PvnStyle.color.charcoalGray
+    property string checkedBorderColor: PvnStyle.color.goldenApricot
+    property string defaultBodredColor: PvnStyle.color.transparent
+    property string checkedDisabledBorderColor: PvnStyle.color.mutedBrown
+    property string borderFocusedColor: PvnStyle.color.paleGray
     property int borderWidth: 0
 
     implicitWidth: content.implicitWidth
@@ -137,3 +137,4 @@ RadioButton {
         this.clicked()
     }
 }
+

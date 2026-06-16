@@ -2,7 +2,7 @@ import Foundation
 import os.log
 
 struct Log {
-  private static let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.AmneziaVPN"
+  private static let subsystemIdentifier = Bundle.main.bundleIdentifier ?? "org.amnezia.PVN"
   static let osLog = Logger(subsystem: subsystemIdentifier, category: "App")
 
   private static let IsLoggingEnabledKey = "IsLoggingEnabled"
@@ -15,7 +15,7 @@ struct Log {
     }
   }
 
-  private static let appGroupID = "group.org.amnezia.AmneziaVPN"
+  private static let appGroupID = "group.org.amnezia.PVN"
 
   static let appLogURL = {
     let sharedContainerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupID)!
@@ -152,3 +152,4 @@ extension Log: CustomStringConvertible {
 func log(_ type: OSLogType, title: String = "", message: String) {
   Log.log(type, title: "App: \(title)", message: message, url: Log.appLogURL)
 }
+

@@ -74,7 +74,7 @@ PageType {
                 font.pixelSize: 14
 
                 text: qsTr("PVN is a free and open-source application. You can support the developers if you like it.")
-                color: AmneziaStyle.color.paleGray
+                color: PvnStyle.color.paleGray
             }
 
             ParagraphTextType {
@@ -117,7 +117,7 @@ PageType {
                 horizontalAlignment: Text.AlignHCenter
 
                 text: qsTr("Software version: %1").arg(SettingsController.getAppVersion())
-                color: AmneziaStyle.color.mutedGray
+                color: PvnStyle.color.mutedGray
 
                 MouseArea {
                     property int clickCount: 0
@@ -140,11 +140,11 @@ PageType {
                 Layout.bottomMargin: 16
                 implicitHeight: 32
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.goldenApricot
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.goldenApricot
 
                 text: qsTr("Check for updates")
 
@@ -161,11 +161,11 @@ PageType {
                 Layout.topMargin: -15
                 implicitHeight: 25
 
-                defaultColor: AmneziaStyle.color.transparent
-                hoveredColor: AmneziaStyle.color.translucentWhite
-                pressedColor: AmneziaStyle.color.sheerWhite
-                disabledColor: AmneziaStyle.color.mutedGray
-                textColor: AmneziaStyle.color.goldenApricot
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.goldenApricot
 
                 text: qsTr("Privacy Policy")
 
@@ -227,3 +227,4 @@ PageType {
         }
     }
 }
+

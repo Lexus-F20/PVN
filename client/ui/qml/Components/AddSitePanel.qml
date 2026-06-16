@@ -62,7 +62,7 @@ Item {
             implicitHeight: 56
 
             image: "qrc:/images/controls/more-vertical.svg"
-            imageColor: AmneziaStyle.color.paleGray
+            imageColor: PvnStyle.color.paleGray
 
             onClicked: root.moreClicked()
 
@@ -71,3 +71,4 @@ Item {
         }
     }
 } 
+

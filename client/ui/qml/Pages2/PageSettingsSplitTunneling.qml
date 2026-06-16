@@ -204,7 +204,7 @@ PageType {
                 text: url
                 descriptionText: ip
                 rightImageSource: "qrc:/images/controls/trash.svg"
-                rightImageColor: AmneziaStyle.color.paleGray
+                rightImageColor: PvnStyle.color.paleGray
 
                 clickedFunction: function() {
                     var headerText = qsTr("Remove ") + url + "?"
@@ -238,7 +238,7 @@ PageType {
         
         height: addSiteButton.implicitHeight + 48
         
-        color: AmneziaStyle.color.midnightBlack
+        color: PvnStyle.color.midnightBlack
         
         RowLayout {
             id: addSiteButton
@@ -276,7 +276,7 @@ PageType {
                 implicitHeight: 56
 
                 image: "qrc:/images/controls/more-vertical.svg"
-                imageColor: AmneziaStyle.color.paleGray
+                imageColor: PvnStyle.color.paleGray
 
                 onClicked: function () {
                     moreActionsDrawer.openTriggered()
@@ -487,3 +487,4 @@ PageType {
         moreActionsDrawer.closeTriggered()
     }
 }
+

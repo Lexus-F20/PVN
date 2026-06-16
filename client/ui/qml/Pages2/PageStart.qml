@@ -348,8 +348,8 @@ PageType {
                 PathLine { x: 0; y: 0 }
 
                 strokeWidth: 1
-                strokeColor: AmneziaStyle.color.slateGray
-                fillColor: AmneziaStyle.color.onyxBlack
+                strokeColor: PvnStyle.color.slateGray
+                fillColor: PvnStyle.color.onyxBlack
             }
         }
 
@@ -424,3 +424,4 @@ PageType {
         }
     }
 }
+

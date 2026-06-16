@@ -19,9 +19,9 @@
 bool isAnotherInstanceRunning()
 {
     QLocalSocket socket;
-    socket.connectToServer("AmneziaVPNInstance");
+    socket.connectToServer("PVNInstance");
     if (socket.waitForConnected(500)) {
-        qWarning() << "AmneziaVPN is already running";
+        qWarning() << "PVN is already running";
         return true;
     }
     return false;
@@ -84,3 +84,4 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
+

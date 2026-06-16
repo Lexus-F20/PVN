@@ -10,30 +10,30 @@ Switch {
     id: root
 
     property alias descriptionText: description.text
-    property string descriptionTextColor: AmneziaStyle.color.mutedGray
-    property string descriptionTextDisabledColor: AmneziaStyle.color.charcoalGray
+    property string descriptionTextColor: PvnStyle.color.mutedGray
+    property string descriptionTextDisabledColor: PvnStyle.color.charcoalGray
 
-    property string textColor: AmneziaStyle.color.paleGray
-    property string textDisabledColor: AmneziaStyle.color.mutedGray
+    property string textColor: PvnStyle.color.paleGray
+    property string textDisabledColor: PvnStyle.color.mutedGray
 
-    property string checkedIndicatorColor: AmneziaStyle.color.richBrown
-    property string defaultIndicatorColor: AmneziaStyle.color.transparent
-    property string checkedDisabledIndicatorColor: AmneziaStyle.color.deepBrown
+    property string checkedIndicatorColor: PvnStyle.color.richBrown
+    property string defaultIndicatorColor: PvnStyle.color.transparent
+    property string checkedDisabledIndicatorColor: PvnStyle.color.deepBrown
 
-    property string borderFocusedColor: AmneziaStyle.color.paleGray
+    property string borderFocusedColor: PvnStyle.color.paleGray
     property int borderFocusedWidth: 1
 
-    property string checkedIndicatorBorderColor: AmneziaStyle.color.richBrown
-    property string defaultIndicatorBorderColor: AmneziaStyle.color.charcoalGray
-    property string checkedDisabledIndicatorBorderColor: AmneziaStyle.color.deepBrown
+    property string checkedIndicatorBorderColor: PvnStyle.color.richBrown
+    property string defaultIndicatorBorderColor: PvnStyle.color.charcoalGray
+    property string checkedDisabledIndicatorBorderColor: PvnStyle.color.deepBrown
 
-    property string checkedInnerCircleColor: AmneziaStyle.color.goldenApricot
-    property string defaultInnerCircleColor: AmneziaStyle.color.paleGray
-    property string checkedDisabledInnerCircleColor: AmneziaStyle.color.mutedBrown
-    property string defaultDisabledInnerCircleColor: AmneziaStyle.color.charcoalGray
+    property string checkedInnerCircleColor: PvnStyle.color.goldenApricot
+    property string defaultInnerCircleColor: PvnStyle.color.paleGray
+    property string checkedDisabledInnerCircleColor: PvnStyle.color.mutedBrown
+    property string defaultDisabledInnerCircleColor: PvnStyle.color.charcoalGray
 
-    property string hoveredIndicatorBackgroundColor: AmneziaStyle.color.translucentWhite
-    property string defaultIndicatorBackgroundColor: AmneziaStyle.color.transparent
+    property string hoveredIndicatorBackgroundColor: PvnStyle.color.translucentWhite
+    property string defaultIndicatorBackgroundColor: PvnStyle.color.transparent
 
     property bool isFocusable: true
 
@@ -160,3 +160,4 @@ Switch {
         event.accepted = true
     }
 }
+
