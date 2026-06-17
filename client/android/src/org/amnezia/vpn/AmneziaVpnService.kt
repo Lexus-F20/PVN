@@ -41,6 +41,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.amnezia.vpn.protocol.BadConfigException
+import org.amnezia.vpn.protocol.Statistics
+import org.amnezia.vpn.protocol.putStatistics
 import org.amnezia.vpn.protocol.ProtocolState.CONNECTED
 import org.amnezia.vpn.protocol.ProtocolState.CONNECTING
 import org.amnezia.vpn.protocol.ProtocolState.DISCONNECTED
@@ -446,8 +448,9 @@ open class AmneziaVpnService : VpnService() {
     @MainThread
     private fun launchTrafficStatsUpdate() {
         stopTrafficStatsUpdateJob()
+        // Run stats whenever we're connected; notification gets updated only if
+        // the notification is enabled, but the QML UI needs stats unconditionally.
         if (isConnected &&
-            serviceNotification.isNotificationEnabled() &&
             getSystemService<PowerManager>()?.isInteractive != false
         ) {
             Log.v(TAG, "Launch traffic stats update")
@@ -464,7 +467,20 @@ open class AmneziaVpnService : VpnService() {
                 while (true) {
                     trafficStats.getSpeed().let { speed ->
                         if (isConnected) {
-                            serviceNotification.updateSpeed(speed)
+                            if (serviceNotification.isNotificationEnabled()) {
+                                serviceNotification.updateSpeed(speed)
+                            }
+                            // Forward cumulative bytes to QML via JNI.
+                            // C++ side derives per-second diff itself.
+                            val total = trafficStats.lastTrafficData
+                            clientMessengers.send {
+                                ServiceEvent.STATISTICS_UPDATE.packToMessage {
+                                    putStatistics(Statistics.build {
+                                        setRxBytes(total.rx)
+                                        setTxBytes(total.tx)
+                                    })
+                                }
+                            }
                         }
                     }
                     delay(TRAFFIC_STATS_UPDATE_TIMEOUT)

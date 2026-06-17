@@ -192,25 +192,26 @@ PageType {
 
                         ColumnLayout {
                             id: presetContent
-                            anchors.fill: parent
-                            anchors.margins: 12
-                            spacing: 4
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.leftMargin: 12
+                            anchors.rightMargin: 12
+                            anchors.topMargin: 12
+                            spacing: 6
 
-                            RowLayout {
+                            Header2TextType {
                                 Layout.fillWidth: true
-                                spacing: 8
+                                text: modelData.name
+                                color: PvnStyle.color.paleGray
+                                elide: Text.ElideRight
+                            }
 
-                                Header2TextType {
-                                    text: modelData.name
-                                    color: PvnStyle.color.paleGray
-                                }
-
-                                Item { Layout.fillWidth: true }
-
-                                CaptionTextType {
-                                    text: modelData.primary + " / " + modelData.secondary
-                                    color: PvnStyle.color.mutedGray
-                                }
+                            CaptionTextType {
+                                Layout.fillWidth: true
+                                text: modelData.primary + " · " + modelData.secondary
+                                color: PvnStyle.color.mutedGray
+                                font.family: "JetBrains Mono"
                             }
 
                             CaptionTextType {

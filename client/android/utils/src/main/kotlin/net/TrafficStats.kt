@@ -14,7 +14,8 @@ private const val TiB = GiB shl 10
 
 class TrafficStats {
 
-    private var lastTrafficData = TrafficData.ZERO
+    var lastTrafficData = TrafficData.ZERO
+        private set
     private var lastTimestamp = 0L
 
     private val getTrafficDataCompat: () -> TrafficData =

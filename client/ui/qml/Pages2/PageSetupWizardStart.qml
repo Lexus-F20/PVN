@@ -230,6 +230,11 @@ PageType {
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
                 defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                disabledColor: PvnStyle.color.mutedGray
+                textColor: PvnStyle.color.paleGray
+                borderColor: PvnStyle.color.slateGray
                 borderWidth: 1
                 text: qsTr("I have a config file")
                 clickedFunc: function() {

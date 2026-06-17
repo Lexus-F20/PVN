@@ -66,7 +66,7 @@ class ServiceNotification(private val context: Context) {
 
         return notificationBuilder
             .setSmallIcon(R.drawable.ic_amnezia_round)
-            .setContentTitle((serverName ?: "AmneziaVPN") + (protocol?.let { " $it" } ?: ""))
+            .setContentTitle((serverName ?: "PVN") + (protocol?.let { " $it" } ?: ""))
             .setContentText(context.getString(state))
             .setSubText(speedString)
             .setWhen(System.currentTimeMillis())
