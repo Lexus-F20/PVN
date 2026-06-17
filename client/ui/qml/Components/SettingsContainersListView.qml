@@ -23,9 +23,12 @@ ListViewType {
 
             text: name
             descriptionText: description
-            rightImageSource: isInstalled ? "qrc:/images/controls/chevron-right.svg" : "qrc:/images/controls/download.svg"
+            rightImageSource: ""
 
             clickedFunction: function() {
+                return
+            }
+            property var _disabledClickedFunction: function() {
                 if (isInstalled) {
                     var containerIndex = root.model.mapToSource(index)
                     ServersUiController.processedContainerIndex = containerIndex
