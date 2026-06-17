@@ -278,17 +278,12 @@ PageType {
         id: pvnGateway
 
         property string title: qsTr("PVN")
-        property string description: qsTr("The easiest way to connect to the VPN")
-        property string imageSource: "qrc:/images/controls/amnezia.svg"
+        property string description: qsTr("Sign in to your PVN account")
+        property string imageSource: "qrc:/images/PVN_logo.svg"
         property bool featuredAmneziaConnection: true
         property bool isVisible: true
         property var handler: function() {
-            PageController.showBusyIndicator(true)
-            var result = SubscriptionUiController.fillAvailableServices()
-            PageController.showBusyIndicator(false)
-            if (result) {
-                PageController.goToPage(PageEnum.PageSetupWizardApiServicesList)
-            }
+            PageController.goToPage(PageEnum.PageSetupWizardStart)
         }
     }
 

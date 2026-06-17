@@ -5,6 +5,7 @@
     <qresource prefix="/images">
         <file>amneziaBigLogo.png</file>
         <file>PVN.png</file>
+        <file>PVN_logo.svg</file>
         <file>controls/alert-circle.svg</file>
         <file>controls/amnezia.svg</file>
         <file>controls/app.svg</file>

@@ -3436,8 +3436,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="281"/>
-        <source>The easiest way to connect to the VPN</source>
-        <translation>Самый простой способ подключиться к VPN</translation>
+        <source>Sign in to your PVN account</source>
+        <translation>Войти в свой аккаунт PVN</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSetupWizardConfigSource.qml" line="367"/>
