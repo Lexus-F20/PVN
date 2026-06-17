@@ -265,7 +265,7 @@ PageType {
     }
 
     property list<QtObject> variants: [
-        PVN,
+        pvnGateway,
         selfHostVpn,
         backupRestore,
         fileOpen,
@@ -273,9 +273,9 @@ PageType {
         restorePurchases,
         siteLink
     ]
-    
+
     QtObject {
-        id: PVN
+        id: pvnGateway
 
         property string title: qsTr("PVN")
         property string description: qsTr("The easiest way to connect to the VPN")
