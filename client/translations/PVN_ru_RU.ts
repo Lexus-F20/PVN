@@ -3671,9 +3671,80 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSetupWizardStart</name>
     <message>
-        <location filename="../ui/qml/Pages2/PageSetupWizardStart.qml" line="42"/>
         <source>Let&apos;s get started</source>
         <translation>Приступим</translation>
+    </message>
+    <message>
+        <source>Welcome back</source>
+        <translation>С возвращением</translation>
+    </message>
+    <message>
+        <source>Create account</source>
+        <translation>Создать аккаунт</translation>
+    </message>
+    <message>
+        <source>Sign in to your PVN account</source>
+        <translation>Войдите в свой аккаунт PVN</translation>
+    </message>
+    <message>
+        <source>Sign up for a new PVN account</source>
+        <translation>Зарегистрируйте новый аккаунт PVN</translation>
+    </message>
+    <message>
+        <source>Name (optional)</source>
+        <translation>Имя (необязательно)</translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation>Email</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>Please wait…</source>
+        <translation>Подождите…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>No account?</source>
+        <translation>Нет аккаунта?</translation>
+    </message>
+    <message>
+        <source>Already have an account?</source>
+        <translation>Уже есть аккаунт?</translation>
+    </message>
+    <message>
+        <source>Sign up</source>
+        <translation>Создать</translation>
+    </message>
+    <message>
+        <source>OR</source>
+        <translation>ИЛИ</translation>
+    </message>
+    <message>
+        <source>Signing in…</source>
+        <translation>Вход…</translation>
+    </message>
+    <message>
+        <source>Continue with Google</source>
+        <translation>Войти через Google</translation>
+    </message>
+    <message>
+        <source>I have a config file</source>
+        <translation>У меня есть файл конфигурации</translation>
+    </message>
+    <message>
+        <source>Enter a valid email</source>
+        <translation>Введите корректный email</translation>
+    </message>
+    <message>
+        <source>Password must be at least 8 characters</source>
+        <translation>Пароль должен быть не короче 8 символов</translation>
     </message>
 </context>
 <context>
@@ -5397,6 +5468,53 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
         <location filename="../ui/qml/main2.qml" line="268"/>
         <source>Save</source>
         <translation>Сохранить</translation>
+    </message>
+</context>
+<context>
+    <name>GoogleAuthController</name>
+    <message>
+        <source>Failed to start local callback server</source>
+        <translation>Не удалось запустить локальный сервер обратного вызова</translation>
+    </message>
+    <message>
+        <source>Could not open browser</source>
+        <translation>Не удалось открыть браузер</translation>
+    </message>
+    <message>
+        <source>OAuth state mismatch</source>
+        <translation>Несовпадение OAuth state</translation>
+    </message>
+    <message>
+        <source>Empty authorization code</source>
+        <translation>Пустой код авторизации</translation>
+    </message>
+    <message>
+        <source>Token exchange failed: %1</source>
+        <translation>Не удалось обменять код: %1</translation>
+    </message>
+    <message>
+        <source>Token exchange returned invalid JSON</source>
+        <translation>Сервер вернул некорректный JSON при обмене кода</translation>
+    </message>
+    <message>
+        <source>No id_token in Google response</source>
+        <translation>В ответе Google отсутствует id_token</translation>
+    </message>
+    <message>
+        <source>Backend auth failed: %1</source>
+        <translation>Ошибка авторизации: %1</translation>
+    </message>
+    <message>
+        <source>Backend returned invalid JSON</source>
+        <translation>Сервер вернул некорректный JSON</translation>
+    </message>
+    <message>
+        <source>Backend response missing token or config</source>
+        <translation>В ответе сервера нет токена или конфигурации</translation>
+    </message>
+    <message>
+        <source>Failed to extract config from backend response</source>
+        <translation>Не удалось извлечь конфигурацию из ответа сервера</translation>
     </message>
 </context>
 </TS>
