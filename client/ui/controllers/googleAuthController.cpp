@@ -255,42 +255,78 @@ void GoogleAuthController::exchangeCodeForIdToken(const QString &code)
 
 void GoogleAuthController::callBackendAuth(const QString &idToken)
 {
+    QJsonObject body;
+    body["idToken"]    = idToken;
+    body["deviceId"]   = deviceId();
+    body["deviceName"] = QSysInfo::machineHostName().left(40);
+    postBackendAuth(QStringLiteral("/auth/google"), body);
+}
+
+void GoogleAuthController::signInWithEmail(const QString &email, const QString &password)
+{
+    m_errorMessage.clear();
+    QJsonObject body;
+    body["email"]      = email.trimmed().toLower();
+    body["password"]   = password;
+    body["deviceId"]   = deviceId();
+    body["deviceName"] = QSysInfo::machineHostName().left(40);
+    postBackendAuth(QStringLiteral("/auth/login"), body);
+}
+
+void GoogleAuthController::registerWithEmail(const QString &email, const QString &password, const QString &name)
+{
+    m_errorMessage.clear();
+    QJsonObject body;
+    body["email"]      = email.trimmed().toLower();
+    body["password"]   = password;
+    body["name"]       = name;
+    body["deviceId"]   = deviceId();
+    body["deviceName"] = QSysInfo::machineHostName().left(40);
+    postBackendAuth(QStringLiteral("/auth/register"), body);
+}
+
+void GoogleAuthController::postBackendAuth(const QString &endpoint, const QJsonObject &body)
+{
     setState(State::CallingBackend);
 
-    QNetworkRequest req(QUrl(QString::fromLatin1(kBackendBase) + "/auth/google"));
+    QNetworkRequest req(QUrl(QString::fromLatin1(kBackendBase) + endpoint));
     req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-    QJsonObject reqBody;
-    reqBody["idToken"]    = idToken;
-    reqBody["deviceId"]   = deviceId();
-    reqBody["deviceName"] = QSysInfo::machineHostName().left(40);
-
-    auto *reply = m_net.post(req, QJsonDocument(reqBody).toJson(QJsonDocument::Compact));
+    auto *reply = m_net.post(req, QJsonDocument(body).toJson(QJsonDocument::Compact));
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-        reply->deleteLater();
-        if (reply->error() != QNetworkReply::NoError) {
-            fail(tr("Backend auth failed: %1").arg(reply->errorString()));
-            return;
-        }
-        const auto data = reply->readAll();
-        const auto doc  = QJsonDocument::fromJson(data);
-        if (!doc.isObject()) {
-            fail(tr("Backend returned invalid JSON"));
-            return;
-        }
-        const auto obj = doc.object();
-        m_jwt       = obj.value("token").toString();
-        m_userEmail = obj.value("user").toObject().value("email").toString();
-        m_userName  = obj.value("user").toObject().value("name").toString();
-        const QString cfg = obj.value("config").toString();
-        if (m_jwt.isEmpty() || cfg.isEmpty()) {
-            fail(tr("Backend response missing token or config"));
-            return;
-        }
-        persistSession();
-        emit userChanged();
-        importReturnedConfig(cfg);
+        handleAuthReply(reply);
     });
+}
+
+void GoogleAuthController::handleAuthReply(QNetworkReply *reply)
+{
+    reply->deleteLater();
+    const auto data = reply->readAll();
+    const auto doc  = QJsonDocument::fromJson(data);
+    const auto obj  = doc.isObject() ? doc.object() : QJsonObject();
+
+    if (reply->error() != QNetworkReply::NoError) {
+        const QString serverMsg = obj.value("error").toString();
+        fail(serverMsg.isEmpty()
+                 ? tr("Backend auth failed: %1").arg(reply->errorString())
+                 : serverMsg);
+        return;
+    }
+    if (obj.isEmpty()) {
+        fail(tr("Backend returned invalid JSON"));
+        return;
+    }
+    m_jwt       = obj.value("token").toString();
+    m_userEmail = obj.value("user").toObject().value("email").toString();
+    m_userName  = obj.value("user").toObject().value("name").toString();
+    const QString cfg = obj.value("config").toString();
+    if (m_jwt.isEmpty() || cfg.isEmpty()) {
+        fail(tr("Backend response missing token or config"));
+        return;
+    }
+    persistSession();
+    emit userChanged();
+    importReturnedConfig(cfg);
 }
 
 void GoogleAuthController::importReturnedConfig(const QString &configText)

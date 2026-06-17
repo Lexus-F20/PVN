@@ -15,54 +15,226 @@ PageType {
     id: root
     enableTimer: (SettingsController.isOnTv()) ? false : true
 
-    ColumnLayout {
-        id: content
+    // ui mode: "login" | "register"
+    property string authMode: "login"
 
+    readonly property bool authBusy: GoogleAuthController.state === 1
+                                  || GoogleAuthController.state === 2
+                                  || GoogleAuthController.state === 3
+                                  || GoogleAuthController.state === 4
+
+    Flickable {
+        id: scroll
         anchors.fill: parent
-        spacing: 0
+        anchors.topMargin: PageController.safeAreaTopMargin
+        anchors.bottomMargin: PageController.safeAreaBottomMargin
+        contentWidth: parent.width
+        contentHeight: content.implicitHeight
+        clip: true
+        boundsBehavior: Flickable.StopAtBounds
 
-        Image {
-            id: image
-            source: "qrc:/images/amneziaBigLogo.png"
+        ColumnLayout {
+            id: content
+            width: scroll.width
+            spacing: 12
 
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.topMargin: 32 + PageController.safeAreaTopMargin
-            Layout.preferredWidth: 360
-            Layout.preferredHeight: 287
-        }
-
-        BasicButtonType {
-            id: googleSignInButton
-            Layout.fillWidth: true
-            Layout.bottomMargin: 8
-            Layout.leftMargin: 16
-            Layout.rightMargin: 16
-            Layout.alignment: Qt.AlignBottom
-
-            text: GoogleAuthController.state === 1 || GoogleAuthController.state === 2 || GoogleAuthController.state === 3 || GoogleAuthController.state === 4
-                  ? qsTr("Signing in…")
-                  : qsTr("Sign in with Google")
-
-            enabled: !(GoogleAuthController.state === 1 || GoogleAuthController.state === 2
-                       || GoogleAuthController.state === 3 || GoogleAuthController.state === 4)
-
-            clickedFunc: function() {
-                GoogleAuthController.signInWithGoogle()
+            Image {
+                id: image
+                source: "qrc:/images/amneziaBigLogo.png"
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: 16
+                Layout.preferredWidth: 200
+                Layout.preferredHeight: 160
+                fillMode: Image.PreserveAspectFit
             }
-        }
 
-        BasicButtonType {
-            id: startButton
-            Layout.fillWidth: true
-            Layout.bottomMargin: 48 + PageController.safeAreaBottomMargin
-            Layout.leftMargin: 16
-            Layout.rightMargin: 16
-            Layout.alignment: Qt.AlignBottom
+            // ---- Title -------------------------------------------------------
+            Header1TextType {
+                Layout.fillWidth: true
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                horizontalAlignment: Text.AlignHCenter
+                text: authMode === "login" ? qsTr("Welcome back") : qsTr("Create account")
+            }
 
-            text: qsTr("I have a config file")
+            ParagraphTextType {
+                Layout.fillWidth: true
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                horizontalAlignment: Text.AlignHCenter
+                color: PvnStyle.color.mutedGray
+                text: authMode === "login"
+                      ? qsTr("Sign in to your PVN account")
+                      : qsTr("Sign up for a new PVN account")
+            }
 
-            clickedFunc: function() {
-                PageController.goToPage(PageEnum.PageSetupWizardConfigSource)
+            // ---- Name (register only) ---------------------------------------
+            TextFieldWithHeaderType {
+                id: nameField
+                visible: authMode === "register"
+                Layout.fillWidth: true
+                Layout.topMargin: 12
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                headerText: qsTr("Name (optional)")
+                textField.text: ""
+                textField.maximumLength: 40
+                textFieldEditable: !authBusy
+            }
+
+            // ---- Email -------------------------------------------------------
+            TextFieldWithHeaderType {
+                id: emailField
+                Layout.fillWidth: true
+                Layout.topMargin: 12
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                headerText: qsTr("Email")
+                textField.text: ""
+                textField.placeholderText: "you@example.com"
+                textField.inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
+                textField.maximumLength: 100
+                textFieldEditable: !authBusy
+            }
+
+            // ---- Password ----------------------------------------------------
+            TextFieldWithHeaderType {
+                id: passwordField
+                Layout.fillWidth: true
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                headerText: qsTr("Password")
+                textField.text: ""
+                textField.echoMode: TextInput.Password
+                textField.maximumLength: 100
+                textFieldEditable: !authBusy
+                buttonImageSource: "qrc:/images/controls/eye.svg"
+                clickedFunc: function() {
+                    textField.echoMode = textField.echoMode === TextInput.Password
+                                       ? TextInput.Normal : TextInput.Password
+                }
+            }
+
+            // ---- Error -------------------------------------------------------
+            CaptionTextType {
+                id: errorLabel
+                Layout.fillWidth: true
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                color: PvnStyle.color.vibrantRed
+                visible: text.length > 0
+                wrapMode: Text.WordWrap
+                text: ""
+            }
+
+            // ---- Primary action ---------------------------------------------
+            BasicButtonType {
+                id: primaryButton
+                Layout.fillWidth: true
+                Layout.topMargin: 12
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                enabled: !authBusy
+                text: authBusy
+                      ? qsTr("Please wait…")
+                      : (authMode === "login" ? qsTr("Sign in") : qsTr("Create account"))
+                clickedFunc: function() {
+                    errorLabel.text = ""
+                    var email = emailField.textField.text.trim()
+                    var password = passwordField.textField.text
+                    if (email.length < 3 || email.indexOf("@") < 1) {
+                        errorLabel.text = qsTr("Enter a valid email")
+                        return
+                    }
+                    if (password.length < 8) {
+                        errorLabel.text = qsTr("Password must be at least 8 characters")
+                        return
+                    }
+                    if (authMode === "login") {
+                        GoogleAuthController.signInWithEmail(email, password)
+                    } else {
+                        GoogleAuthController.registerWithEmail(email, password, nameField.textField.text.trim())
+                    }
+                }
+            }
+
+            // ---- Toggle login/register --------------------------------------
+            Row {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: 4
+                spacing: 6
+                ParagraphTextType {
+                    color: PvnStyle.color.mutedGray
+                    text: authMode === "login"
+                          ? qsTr("No account?")
+                          : qsTr("Already have an account?")
+                }
+                ParagraphTextType {
+                    color: PvnStyle.color.paleGray
+                    text: authMode === "login" ? qsTr("Sign up") : qsTr("Sign in")
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            errorLabel.text = ""
+                            authMode = authMode === "login" ? "register" : "login"
+                        }
+                    }
+                }
+            }
+
+            // ---- "OR" divider ------------------------------------------------
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.topMargin: 16
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                spacing: 8
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: 1
+                    color: PvnStyle.color.slateGray
+                }
+                CaptionTextType {
+                    text: qsTr("OR")
+                    color: PvnStyle.color.mutedGray
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    height: 1
+                    color: PvnStyle.color.slateGray
+                }
+            }
+
+            // ---- Google ------------------------------------------------------
+            BasicButtonType {
+                id: googleSignInButton
+                Layout.fillWidth: true
+                Layout.topMargin: 8
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                enabled: !authBusy
+                text: authBusy ? qsTr("Signing in…") : qsTr("Continue with Google")
+                clickedFunc: function() {
+                    errorLabel.text = ""
+                    GoogleAuthController.signInWithGoogle()
+                }
+            }
+
+            // ---- I have a config file ---------------------------------------
+            BasicButtonType {
+                id: startButton
+                Layout.fillWidth: true
+                Layout.topMargin: 8
+                Layout.bottomMargin: 24
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                defaultColor: PvnStyle.color.transparent
+                borderWidth: 1
+                text: qsTr("I have a config file")
+                clickedFunc: function() {
+                    PageController.goToPage(PageEnum.PageSetupWizardConfigSource)
+                }
             }
         }
     }
@@ -73,7 +245,7 @@ PageType {
             PageController.goToPageHome()
         }
         function onSignInFailed(msg) {
-            PageController.showErrorMessage(msg)
+            errorLabel.text = msg
         }
     }
 

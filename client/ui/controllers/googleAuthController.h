@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpServer>
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QString>
 #include <QJsonObject>
 
@@ -43,6 +44,8 @@ public:
 
 public slots:
     void signInWithGoogle();
+    void signInWithEmail(const QString &email, const QString &password);
+    void registerWithEmail(const QString &email, const QString &password, const QString &name);
     void signOut();
 
 signals:
@@ -59,6 +62,8 @@ private:
     void handleCallback(const QString &code, const QString &returnedState);
     void exchangeCodeForIdToken(const QString &code);
     void callBackendAuth(const QString &idToken);
+    void postBackendAuth(const QString &endpoint, const QJsonObject &body);
+    void handleAuthReply(QNetworkReply *reply);
     void importReturnedConfig(const QString &configText);
     void loadPersistedSession();
     void persistSession();
