@@ -280,8 +280,8 @@ PageType {
         property string title: qsTr("PVN")
         property string description: qsTr("Sign in to your PVN account")
         property string imageSource: "qrc:/images/PVN_logo.svg"
-        property bool featuredAmneziaConnection: true
-        property bool isVisible: true
+        property bool featuredAmneziaConnection: false
+        property bool isVisible: false
         property var handler: function() {
             PageController.goToPage(PageEnum.PageSetupWizardStart)
         }
