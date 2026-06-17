@@ -245,7 +245,7 @@ PageType {
                 Layout.alignment: Qt.AlignHCenter
                 implicitHeight: 32
 
-                visible: Qt.platform.os !== "ios" && !IsMacOsNeBuild
+                visible: false
 
                 defaultColor: PvnStyle.color.transparent
                 hoveredColor: PvnStyle.color.translucentWhite
@@ -258,7 +258,6 @@ PageType {
                 rightImageSource: "qrc:/images/controls/external-link.svg"
 
                 clickedFunc: function() {
-                    Qt.openUrlExternally(LanguageUiController.getCurrentSiteUrl())
                 }
             }
         }
@@ -376,9 +375,8 @@ PageType {
         property string title: qsTr("I have nothing")
         property string description: qsTr("")
         property string imageSource: "qrc:/images/controls/help-circle.svg"
-        property bool isVisible: PageController.isStartPageVisible() && Qt.platform.os !== "ios" && !IsMacOsNeBuild
+        property bool isVisible: false
         property var handler: function() {
-            Qt.openUrlExternally(LanguageUiController.getCurrentSiteUrl())
         }
     }
 }

@@ -58,13 +58,13 @@ LanguageSettings::AvailableLanguageEnum LanguageUiController::getSystemLanguageE
 QString LanguageUiController::getCurrentSiteUrl(const QString &path) const
 {
     Q_UNUSED(path);
-    return QString("https://github.com/Lexus-F20/PVN");
+    return QString();
 }
 
 QString LanguageUiController::getCurrentDocsUrl(const QString &path) const
 {
     Q_UNUSED(path);
-    return QString("https://github.com/Lexus-F20/PVN");
+    return QString();
 }
 
 QString LanguageUiController::getLocalLanguageName(const LanguageSettings::AvailableLanguageEnum language) const
