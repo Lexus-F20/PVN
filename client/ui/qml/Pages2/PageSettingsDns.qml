@@ -14,6 +14,47 @@ import "../Components"
 PageType {
     id: root
 
+    property bool recommendationsExpanded: false
+
+    readonly property var dnsPresets: [
+        {
+            name: "Cloudflare",
+            primary: "1.1.1.1",
+            secondary: "1.0.0.1",
+            description: qsTr("Fastest, privacy-focused, no logging. Recommended for most users.")
+        },
+        {
+            name: "Google",
+            primary: "8.8.8.8",
+            secondary: "8.8.4.4",
+            description: qsTr("Stable and widely used worldwide. Good if Cloudflare is slow.")
+        },
+        {
+            name: "AdGuard",
+            primary: "94.140.14.14",
+            secondary: "94.140.15.15",
+            description: qsTr("Blocks ads and trackers at DNS level. Good for clean browsing.")
+        },
+        {
+            name: "AdGuard Family",
+            primary: "94.140.14.15",
+            secondary: "94.140.15.16",
+            description: qsTr("Blocks ads, trackers, and adult content. Good for child devices.")
+        },
+        {
+            name: "Quad9",
+            primary: "9.9.9.9",
+            secondary: "149.112.112.112",
+            description: qsTr("Blocks known malicious domains (phishing, malware). Safety-first.")
+        },
+        {
+            name: "Yandex Safe",
+            primary: "77.88.8.88",
+            secondary: "77.88.8.2",
+            description: qsTr("Russia-based, blocks malicious sites. Fast in CIS region.")
+        }
+    ]
+
     BackButtonType {
         id: backButton
 
@@ -101,6 +142,98 @@ PageType {
                 textField.text: SettingsController.secondaryDns
                 textField.validator: RegularExpressionValidator {
                     regularExpression: InstallController.ipAddressRegExp()
+                }
+            }
+
+            BasicButtonType {
+                id: recommendationsButton
+
+                Layout.fillWidth: true
+                Layout.topMargin: 16
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+
+                defaultColor: PvnStyle.color.transparent
+                hoveredColor: PvnStyle.color.translucentWhite
+                pressedColor: PvnStyle.color.sheerWhite
+                textColor: PvnStyle.color.paleGray
+                borderWidth: 1
+
+                text: root.recommendationsExpanded
+                      ? qsTr("Hide recommendations")
+                      : qsTr("Recommended DNS servers")
+
+                clickedFunc: function() {
+                    root.recommendationsExpanded = !root.recommendationsExpanded
+                }
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.leftMargin: 16
+                Layout.rightMargin: 16
+                Layout.topMargin: 8
+                spacing: 8
+
+                visible: root.recommendationsExpanded
+
+                Repeater {
+                    model: root.dnsPresets
+
+                    delegate: Rectangle {
+                        Layout.fillWidth: true
+                        radius: 12
+                        color: presetMouse.containsMouse
+                               ? PvnStyle.color.translucentWhite
+                               : PvnStyle.color.onyxBlack
+                        border.color: PvnStyle.color.slateGray
+                        border.width: 1
+                        implicitHeight: presetContent.implicitHeight + 24
+
+                        ColumnLayout {
+                            id: presetContent
+                            anchors.fill: parent
+                            anchors.margins: 12
+                            spacing: 4
+
+                            RowLayout {
+                                Layout.fillWidth: true
+                                spacing: 8
+
+                                Header2TextType {
+                                    text: modelData.name
+                                    color: PvnStyle.color.paleGray
+                                }
+
+                                Item { Layout.fillWidth: true }
+
+                                CaptionTextType {
+                                    text: modelData.primary + " / " + modelData.secondary
+                                    color: PvnStyle.color.mutedGray
+                                }
+                            }
+
+                            CaptionTextType {
+                                Layout.fillWidth: true
+                                wrapMode: Text.WordWrap
+                                color: PvnStyle.color.mutedGray
+                                text: modelData.description
+                            }
+                        }
+
+                        MouseArea {
+                            id: presetMouse
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                primaryDns.textField.text = modelData.primary
+                                secondaryDns.textField.text = modelData.secondary
+                                PageController.showNotificationMessage(
+                                    qsTr("%1 DNS applied. Press Save to keep it.").arg(modelData.name))
+                            }
+                        }
+                    }
                 }
             }
 

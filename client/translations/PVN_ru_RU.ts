@@ -2534,6 +2534,42 @@ Thank you for staying with us!</source>
 <context>
     <name>PageSettingsDns</name>
     <message>
+        <source>Recommended DNS servers</source>
+        <translation>Рекомендуемые DNS-серверы</translation>
+    </message>
+    <message>
+        <source>Hide recommendations</source>
+        <translation>Скрыть рекомендации</translation>
+    </message>
+    <message>
+        <source>%1 DNS applied. Press Save to keep it.</source>
+        <translation>DNS %1 применён. Нажмите «Сохранить», чтобы оставить.</translation>
+    </message>
+    <message>
+        <source>Fastest, privacy-focused, no logging. Recommended for most users.</source>
+        <translation>Самый быстрый, ориентирован на приватность, без логов. Подходит большинству.</translation>
+    </message>
+    <message>
+        <source>Stable and widely used worldwide. Good if Cloudflare is slow.</source>
+        <translation>Стабильный, используется по всему миру. Если Cloudflare медленный.</translation>
+    </message>
+    <message>
+        <source>Blocks ads and trackers at DNS level. Good for clean browsing.</source>
+        <translation>Блокирует рекламу и трекеры на уровне DNS. Для чистого браузинга.</translation>
+    </message>
+    <message>
+        <source>Blocks ads, trackers, and adult content. Good for child devices.</source>
+        <translation>Блокирует рекламу, трекеры и контент 18+. Подходит для детских устройств.</translation>
+    </message>
+    <message>
+        <source>Blocks known malicious domains (phishing, malware). Safety-first.</source>
+        <translation>Блокирует вредоносные домены (фишинг, malware). Безопасность во главе.</translation>
+    </message>
+    <message>
+        <source>Russia-based, blocks malicious sites. Fast in CIS region.</source>
+        <translation>Российский DNS, блокирует вредоносные сайты. Быстрый в СНГ.</translation>
+    </message>
+    <message>
         <location filename="../ui/qml/Pages2/PageSettingsDns.qml" line="46"/>
         <source>Default server does not support custom DNS</source>
         <translation>Сервер по умолчанию не поддерживает пользовательские DNS</translation>
