@@ -216,6 +216,7 @@ PageType {
             LabelWithButtonType {
                 id: labelWithButtonLogging
 
+                visible: false
                 Layout.fillWidth: true
 
                 text: qsTr("Logging")
@@ -227,7 +228,7 @@ PageType {
                 }
             }
 
-            DividerType {}
+            DividerType { visible: false }
 
             LabelWithButtonType {
                 id: labelWithButtonReset
