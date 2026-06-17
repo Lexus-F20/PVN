@@ -74,7 +74,7 @@ QMap<DockerContainer, QString> ContainerUtils::containerHumanNames()
              { DockerContainer::SSXray, "Shadowsocks"},
 
              { DockerContainer::TorWebSite, QObject::tr("Website in Tor network") },
-             { DockerContainer::Dns, QObject::tr("AmneziaDNS") },
+             { DockerContainer::Dns, QObject::tr("PVN DNS") },
              { DockerContainer::Sftp, QObject::tr("SFTP file sharing service") },
              { DockerContainer::Socks5Proxy, QObject::tr("SOCKS5 proxy server") },
              { DockerContainer::MtProxy, QObject::tr("MTProxy (Telegram)") },

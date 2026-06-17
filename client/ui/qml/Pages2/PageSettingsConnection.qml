@@ -62,8 +62,8 @@ PageType {
                 Layout.fillWidth: true
                 Layout.margins: 16
 
-                text: qsTr("Use AmneziaDNS")
-                descriptionText: qsTr("If AmneziaDNS is installed on the server")
+                text: qsTr("Use PVN DNS")
+                descriptionText: qsTr("If PVN DNS is installed on the server")
 
                 checked: SettingsController.isAmneziaDnsEnabled()
                 onToggled: function() {
@@ -81,7 +81,7 @@ PageType {
                 Layout.fillWidth: true
 
                 text: qsTr("DNS servers")
-                descriptionText: qsTr("When AmneziaDNS is not used or installed")
+                descriptionText: qsTr("When PVN DNS is not used or installed")
                 rightImageSource: "qrc:/images/controls/chevron-right.svg"
 
                 clickedFunction: function() {

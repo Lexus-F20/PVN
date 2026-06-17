@@ -1416,8 +1416,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageServiceDnsSettings.qml" line="78"/>
-        <source>Cannot remove AmneziaDNS from running server</source>
-        <translation>Невозможно удалить AmneziaDNS с работающего сервера</translation>
+        <source>Cannot remove PVN DNS from running server</source>
+        <translation>Невозможно удалить PVN DNS с работающего сервера</translation>
     </message>
 </context>
 <context>
@@ -2482,13 +2482,13 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsConnection.qml" line="65"/>
-        <source>Use AmneziaDNS</source>
-        <translation>Использовать AmneziaDNS</translation>
+        <source>Use PVN DNS</source>
+        <translation>Использовать PVN DNS</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsConnection.qml" line="66"/>
-        <source>If AmneziaDNS is installed on the server</source>
-        <translation>Если AmneziaDNS установлен на сервере</translation>
+        <source>If PVN DNS is installed on the server</source>
+        <translation>Если PVN DNS установлен на сервере</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsConnection.qml" line="83"/>
@@ -2497,8 +2497,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsConnection.qml" line="84"/>
-        <source>When AmneziaDNS is not used or installed</source>
-        <translation>Когда AmneziaDNS не используется или не установлен</translation>
+        <source>When PVN DNS is not used or installed</source>
+        <translation>Когда PVN DNS не используется или не установлен</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsConnection.qml" line="124"/>
@@ -2545,8 +2545,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsDns.qml" line="67"/>
-        <source>If AmneziaDNS is not used or installed</source>
-        <translation>Если AmneziaDNS не используется или не установлен</translation>
+        <source>If PVN DNS is not used or installed</source>
+        <translation>Если PVN DNS не используется или не установлен</translation>
     </message>
     <message>
         <location filename="../ui/qml/Pages2/PageSettingsDns.qml" line="84"/>
@@ -4734,8 +4734,8 @@ Thank you for staying with us!</source>
     </message>
     <message>
         <location filename="../containers/containers_defs.cpp" line="111"/>
-        <source>AmneziaDNS</source>
-        <translation>AmneziaDNS</translation>
+        <source>PVN DNS</source>
+        <translation>PVN DNS</translation>
     </message>
     <message>
         <location filename="../containers/containers_defs.cpp" line="119"/>

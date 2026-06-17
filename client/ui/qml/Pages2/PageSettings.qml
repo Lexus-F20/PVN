@@ -176,7 +176,7 @@ PageType {
 
         property string title: qsTr("About PVN")
         readonly property string leftImagePath: "qrc:/images/controls/amnezia.svg"
-        property bool isVisible: true
+        property bool isVisible: false
         readonly property var clickedHandler: function() {
             PageController.goToPage(PageEnum.PageSettingsAbout)
         }
