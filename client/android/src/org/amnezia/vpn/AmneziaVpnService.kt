@@ -18,6 +18,7 @@ import android.os.Message
 import android.os.Messenger
 import android.os.PowerManager
 import android.os.Process
+import android.os.SystemClock
 import androidx.annotation.MainThread
 import androidx.core.app.ServiceCompat
 import androidx.core.content.ContextCompat
@@ -454,31 +455,45 @@ open class AmneziaVpnService : VpnService() {
             getSystemService<PowerManager>()?.isInteractive != false
         ) {
             Log.v(TAG, "Launch traffic stats update")
-            trafficStats.reset()
             startTrafficStatsUpdateJob()
         }
     }
 
     @MainThread
     private fun startTrafficStatsUpdateJob() {
-        if (trafficStatsUpdateJob == null && trafficStats.isSupported()) {
+        if (trafficStatsUpdateJob == null) {
             Log.d(TAG, "Start traffic stats update")
             trafficStatsUpdateJob = mainScope.launch {
+                // Pull initial cumulative bytes from the active protocol so the
+                // first delta is computed against the right baseline. Bypassing
+                // Android TrafficStats because our VPN iface is amn0/awg0, not
+                // tun0, so getRxBytes(iface) returns UNSUPPORTED there.
+                var lastTimestamp = SystemClock.elapsedRealtime()
+                val baseline = vpnProto?.protocol?.statistics ?: Statistics.EMPTY_STATISTICS
+                var lastRx = baseline.rxBytes
+                var lastTx = baseline.txBytes
                 while (true) {
-                    trafficStats.getSpeed().let { speed ->
-                        if (isConnected) {
+                    if (isConnected) {
+                        val stats = vpnProto?.protocol?.statistics ?: Statistics.EMPTY_STATISTICS
+                        val now = SystemClock.elapsedRealtime()
+                        val elapsedSec = (now - lastTimestamp) / 1000.0
+                        if (elapsedSec >= 0.5) {
+                            val rxSpeed = ((stats.rxBytes - lastRx) / elapsedSec).toLong().coerceAtLeast(0L)
+                            val txSpeed = ((stats.txBytes - lastTx) / elapsedSec).toLong().coerceAtLeast(0L)
+                            lastRx = stats.rxBytes
+                            lastTx = stats.txBytes
+                            lastTimestamp = now
+
                             if (serviceNotification.isNotificationEnabled()) {
-                                serviceNotification.updateSpeed(speed)
+                                serviceNotification.updateSpeed(
+                                    org.amnezia.vpn.util.net.TrafficStats.TrafficData(rxSpeed, txSpeed)
+                                )
                             }
-                            // Forward cumulative bytes to QML via JNI.
-                            // C++ side derives per-second diff itself.
-                            val total = trafficStats.lastTrafficData
+                            // Forward cumulative bytes to QML via JNI; C++ side
+                            // derives per-second diff itself.
                             clientMessengers.send {
                                 ServiceEvent.STATISTICS_UPDATE.packToMessage {
-                                    putStatistics(Statistics.build {
-                                        setRxBytes(total.rx)
-                                        setTxBytes(total.tx)
-                                    })
+                                    putStatistics(stats)
                                 }
                             }
                         }

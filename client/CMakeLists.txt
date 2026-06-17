@@ -74,12 +74,6 @@ qt6_add_resources(QRC ${QRC}
 set(PVN_TS_FILES
     ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ru_RU.ts
     ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_zh_CN.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_fa_IR.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ar_EG.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_my_MM.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_uk_UA.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_ur_PK.ts
-    ${CMAKE_CURRENT_LIST_DIR}/translations/PVN_hi_IN.ts
 )
 
 qt6_add_translations(${PROJECT}
