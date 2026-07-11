@@ -18,10 +18,10 @@ PageType {
     // ui mode: "login" | "register"
     property string authMode: "login"
 
-    readonly property bool authBusy: GoogleAuthController.state === 1
-                                  || GoogleAuthController.state === 2
-                                  || GoogleAuthController.state === 3
-                                  || GoogleAuthController.state === 4
+    readonly property bool authBusy: AuthController.state === 1
+                                  || AuthController.state === 2
+                                  || AuthController.state === 3
+                                  || AuthController.state === 4
 
     Flickable {
         id: scroll
@@ -151,9 +151,9 @@ PageType {
                         return
                     }
                     if (authMode === "login") {
-                        GoogleAuthController.signInWithEmail(email, password)
+                        AuthController.signInWithEmail(email, password)
                     } else {
-                        GoogleAuthController.registerWithEmail(email, password, nameField.textField.text.trim())
+                        AuthController.registerWithEmail(email, password, nameField.textField.text.trim())
                     }
                 }
             }
@@ -217,7 +217,7 @@ PageType {
                 text: authBusy ? qsTr("Signing in…") : qsTr("Continue with Google")
                 clickedFunc: function() {
                     errorLabel.text = ""
-                    GoogleAuthController.signInWithGoogle()
+                    AuthController.signInWithGoogle()
                 }
             }
 
@@ -245,7 +245,7 @@ PageType {
     }
 
     Connections {
-        target: GoogleAuthController
+        target: AuthController
         function onSignInCompleted() {
             PageController.goToPageHome()
         }

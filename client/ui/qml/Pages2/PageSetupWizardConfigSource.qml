@@ -235,56 +235,15 @@ PageType {
             }
         }
 
-        footer: ColumnLayout {
-            width: listView.width
-
-            BasicButtonType {
-                id: siteLink2
-                Layout.topMargin: 24
-                Layout.bottomMargin: 16
-                Layout.alignment: Qt.AlignHCenter
-                implicitHeight: 32
-
-                visible: false
-
-                defaultColor: PvnStyle.color.transparent
-                hoveredColor: PvnStyle.color.translucentWhite
-                pressedColor: PvnStyle.color.sheerWhite
-                disabledColor: PvnStyle.color.mutedGray
-                textColor: PvnStyle.color.goldenApricot
-
-                text: qsTr("PVN GitHub")
-
-                rightImageSource: "qrc:/images/controls/external-link.svg"
-
-                clickedFunc: function() {
-                }
-            }
-        }
     }
 
     property list<QtObject> variants: [
-        pvnGateway,
         selfHostVpn,
         backupRestore,
         fileOpen,
         qrScan,
-        restorePurchases,
-        siteLink
+        restorePurchases
     ]
-
-    QtObject {
-        id: pvnGateway
-
-        property string title: qsTr("PVN")
-        property string description: qsTr("Sign in to your PVN account")
-        property string imageSource: "qrc:/images/PVN_logo.svg"
-        property bool featuredAmneziaConnection: false
-        property bool isVisible: false
-        property var handler: function() {
-            PageController.goToPage(PageEnum.PageSetupWizardStart)
-        }
-    }
 
     QtObject {
         id: selfHostVpn
@@ -368,17 +327,4 @@ PageType {
         }
     }
 
-    QtObject {
-        id: siteLink
-
-        property bool featuredAmneziaConnection: false
-        property string title: qsTr("I have nothing")
-        property string description: qsTr("")
-        property string imageSource: "qrc:/images/controls/help-circle.svg"
-        property bool isVisible: false
-        property var handler: function() {
-        }
-    }
 }
-
-

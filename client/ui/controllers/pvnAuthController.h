@@ -1,5 +1,5 @@
-#ifndef GOOGLEAUTHCONTROLLER_H
-#define GOOGLEAUTHCONTROLLER_H
+#ifndef PVNAUTHCONTROLLER_H
+#define PVNAUTHCONTROLLER_H
 
 #include <QObject>
 #include <QTcpServer>
@@ -11,7 +11,7 @@
 #include "core/controllers/selfhosted/importController.h"
 #include "core/controllers/connectionController.h"
 
-class GoogleAuthController : public QObject
+class PvnAuthController : public QObject
 {
     Q_OBJECT
 public:
@@ -32,9 +32,9 @@ public:
     Q_PROPERTY(QString userName READ userName NOTIFY userChanged)
     Q_PROPERTY(bool isSignedIn READ isSignedIn NOTIFY userChanged)
 
-    explicit GoogleAuthController(ImportController *importController,
-                                  ConnectionController *connectionController,
-                                  QObject *parent = nullptr);
+    explicit PvnAuthController(ImportController *importController,
+                               ConnectionController *connectionController,
+                               QObject *parent = nullptr);
 
     int stateInt() const { return static_cast<int>(m_state); }
     QString errorMessage() const { return m_errorMessage; }
@@ -68,9 +68,11 @@ private:
     void loadPersistedSession();
     void persistSession();
     void clearPersistedSession();
+    void maybeRefreshSession();      // called on startup if JWT near expiry
+    void postBackendLogout();        // fire-and-forget /me/logout with current JWT
     static QString randomBase64Url(int bytes);
     static QString sha256Base64Url(const QString &input);
-    static QString platformClientId();
+    static qint64 jwtExpiryFromToken(const QString &jwt);  // Unix seconds, 0 if unknown
     QString deviceId() const;
 
     State m_state = State::Idle;
@@ -91,4 +93,4 @@ private:
     ConnectionController *m_connectionController;
 };
 
-#endif // GOOGLEAUTHCONTROLLER_H
+#endif // PVNAUTHCONTROLLER_H

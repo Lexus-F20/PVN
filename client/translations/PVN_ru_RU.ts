@@ -5507,7 +5507,7 @@ FileZilla или другие SFTP-клиенты, а также смонтир�
     </message>
 </context>
 <context>
-    <name>GoogleAuthController</name>
+    <name>PvnAuthController</name>
     <message>
         <source>Failed to start local callback server</source>
         <translation>Не удалось запустить локальный сервер обратного вызова</translation>
